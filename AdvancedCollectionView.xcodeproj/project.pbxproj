@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C54F54491D215CEE0021336E /* AdvancedCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54481D215CEE0021336E /* AdvancedCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54501D215CF10021336E /* AdvancedCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54F54451D215CED0021336E /* AdvancedCollectionView.framework */; };
+		C54F54551D215CF10021336E /* AdvancedCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */; };
+		C54F546D1D22A9FF0021336E /* AAPLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54621D22A9FF0021336E /* AAPLAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F546E1D22A9FF0021336E /* AAPLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54631D22A9FF0021336E /* AAPLAction.m */; };
+		C54F546F1D22A9FF0021336E /* AAPLContentLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54641D22A9FF0021336E /* AAPLContentLoading.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54701D22A9FF0021336E /* AAPLContentLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54651D22A9FF0021336E /* AAPLContentLoading.m */; };
+		C54F54711D22A9FF0021336E /* AAPLDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54661D22A9FF0021336E /* AAPLDebug.h */; };
+		C54F54721D22A9FF0021336E /* AAPLDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54671D22A9FF0021336E /* AAPLDebug.m */; };
+		C54F54731D22A9FF0021336E /* AAPLLocalization.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54681D22A9FF0021336E /* AAPLLocalization.h */; };
+		C54F54741D22A9FF0021336E /* AAPLStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54691D22A9FF0021336E /* AAPLStateMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54751D22A9FF0021336E /* AAPLStateMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F546A1D22A9FF0021336E /* AAPLStateMachine.m */; };
+		C54F54761D22A9FF0021336E /* AAPLTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F546B1D22A9FF0021336E /* AAPLTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54771D22A9FF0021336E /* AAPLTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F546C1D22A9FF0021336E /* AAPLTheme.m */; };
+		C54F54BB1D22AA110021336E /* AAPLDataSource+Headers.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54791D22AA110021336E /* AAPLDataSource+Headers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54BC1D22AA110021336E /* AAPLDataSource+Headers.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F547A1D22AA110021336E /* AAPLDataSource+Headers.m */; };
+		C54F54BD1D22AA110021336E /* UICollectionView+SupplementaryViews.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F547B1D22AA110021336E /* UICollectionView+SupplementaryViews.h */; };
+		C54F54BE1D22AA110021336E /* UICollectionView+SupplementaryViews.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F547C1D22AA110021336E /* UICollectionView+SupplementaryViews.m */; };
+		C54F54BF1D22AA110021336E /* UIView+Helpers.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F547D1D22AA110021336E /* UIView+Helpers.h */; };
+		C54F54C01D22AA110021336E /* UIView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F547E1D22AA110021336E /* UIView+Helpers.m */; };
+		C54F54C11D22AA110021336E /* AAPLBasicDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54801D22AA110021336E /* AAPLBasicDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54C21D22AA110021336E /* AAPLBasicDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54811D22AA110021336E /* AAPLBasicDataSource.m */; };
+		C54F54C31D22AA110021336E /* AAPLComposedDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54821D22AA110021336E /* AAPLComposedDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54C41D22AA110021336E /* AAPLComposedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54831D22AA110021336E /* AAPLComposedDataSource.m */; };
+		C54F54C51D22AA110021336E /* AAPLDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54841D22AA110021336E /* AAPLDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54C61D22AA110021336E /* AAPLDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54851D22AA110021336E /* AAPLDataSource.m */; };
+		C54F54C71D22AA110021336E /* AAPLDataSource_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54861D22AA110021336E /* AAPLDataSource_Private.h */; };
+		C54F54C81D22AA110021336E /* AAPLDataSourceMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54871D22AA110021336E /* AAPLDataSourceMapping.h */; };
+		C54F54C91D22AA110021336E /* AAPLDataSourceMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54881D22AA110021336E /* AAPLDataSourceMapping.m */; };
+		C54F54CA1D22AA110021336E /* AAPLDataSourceMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54891D22AA110021336E /* AAPLDataSourceMetrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54CB1D22AA110021336E /* AAPLDataSourceMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F548A1D22AA110021336E /* AAPLDataSourceMetrics.m */; };
+		C54F54CC1D22AA110021336E /* AAPLDataSourceMetrics_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F548B1D22AA110021336E /* AAPLDataSourceMetrics_Private.h */; };
+		C54F54CD1D22AA110021336E /* AAPLKeyValueDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F548C1D22AA110021336E /* AAPLKeyValueDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54CE1D22AA110021336E /* AAPLKeyValueDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F548D1D22AA110021336E /* AAPLKeyValueDataSource.m */; };
+		C54F54CF1D22AA110021336E /* AAPLSegmentedDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F548E1D22AA110021336E /* AAPLSegmentedDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54D01D22AA110021336E /* AAPLSegmentedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F548F1D22AA110021336E /* AAPLSegmentedDataSource.m */; };
+		C54F54D11D22AA110021336E /* AAPLTextValueDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54901D22AA110021336E /* AAPLTextValueDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54D21D22AA110021336E /* AAPLTextValueDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54911D22AA110021336E /* AAPLTextValueDataSource.m */; };
+		C54F54D31D22AA110021336E /* AAPLCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54931D22AA110021336E /* AAPLCollectionViewLayout.h */; };
+		C54F54D41D22AA110021336E /* AAPLCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54941D22AA110021336E /* AAPLCollectionViewLayout.m */; };
+		C54F54D51D22AA110021336E /* AAPLCollectionViewLayout_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54951D22AA110021336E /* AAPLCollectionViewLayout_Internal.h */; };
+		C54F54D61D22AA110021336E /* AAPLCollectionViewLayout_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54961D22AA110021336E /* AAPLCollectionViewLayout_Internal.m */; };
+		C54F54D71D22AA110021336E /* AAPLCollectionViewLayout_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54971D22AA110021336E /* AAPLCollectionViewLayout_Private.h */; };
+		C54F54D81D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54981D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h */; };
+		C54F54D91D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54991D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m */; };
+		C54F54DA1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549A1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h */; };
+		C54F54DB1D22AA110021336E /* AAPLLayoutMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549B1D22AA110021336E /* AAPLLayoutMetrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54DC1D22AA110021336E /* AAPLLayoutMetrics.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F549C1D22AA110021336E /* AAPLLayoutMetrics.m */; };
+		C54F54DD1D22AA110021336E /* AAPLLayoutMetrics_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549D1D22AA110021336E /* AAPLLayoutMetrics_Private.h */; };
+		C54F54DE1D22AA110021336E /* AAPLShadowRegistrar.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549E1D22AA110021336E /* AAPLShadowRegistrar.h */; };
+		C54F54DF1D22AA110021336E /* AAPLShadowRegistrar.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F549F1D22AA110021336E /* AAPLShadowRegistrar.m */; };
+		C54F54E01D22AA110021336E /* AAPLCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54A11D22AA110021336E /* AAPLCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54E11D22AA110021336E /* AAPLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54A21D22AA110021336E /* AAPLCollectionViewController.m */; };
+		C54F54E21D22AA110021336E /* AAPLSwipeToEditController.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54A31D22AA110021336E /* AAPLSwipeToEditController.h */; };
+		C54F54E31D22AA110021336E /* AAPLSwipeToEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54A41D22AA110021336E /* AAPLSwipeToEditController.m */; };
+		C54F54E41D22AA110021336E /* AAPLBasicCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54A61D22AA110021336E /* AAPLBasicCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54E51D22AA110021336E /* AAPLBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54A71D22AA110021336E /* AAPLBasicCell.m */; };
+		C54F54E61D22AA110021336E /* AAPLCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54A81D22AA110021336E /* AAPLCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54E71D22AA110021336E /* AAPLCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54A91D22AA110021336E /* AAPLCollectionViewCell.m */; };
+		C54F54E81D22AA110021336E /* AAPLCollectionViewCell_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54AA1D22AA110021336E /* AAPLCollectionViewCell_Private.h */; };
+		C54F54E91D22AA110021336E /* AAPLHairlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54AB1D22AA110021336E /* AAPLHairlineView.h */; };
+		C54F54EA1D22AA110021336E /* AAPLHairlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54AC1D22AA110021336E /* AAPLHairlineView.m */; };
+		C54F54EB1D22AA110021336E /* AAPLKeyValueCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54AD1D22AA110021336E /* AAPLKeyValueCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54EC1D22AA110021336E /* AAPLKeyValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54AE1D22AA110021336E /* AAPLKeyValueCell.m */; };
+		C54F54ED1D22AA110021336E /* AAPLLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54AF1D22AA110021336E /* AAPLLabel.h */; };
+		C54F54EE1D22AA110021336E /* AAPLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B01D22AA110021336E /* AAPLLabel.m */; };
+		C54F54EF1D22AA110021336E /* AAPLPinnableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B11D22AA110021336E /* AAPLPinnableHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54F01D22AA110021336E /* AAPLPinnableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B21D22AA110021336E /* AAPLPinnableHeaderView.m */; };
+		C54F54F11D22AA110021336E /* AAPLPlaceholderView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B31D22AA110021336E /* AAPLPlaceholderView.h */; };
+		C54F54F21D22AA110021336E /* AAPLPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B41D22AA110021336E /* AAPLPlaceholderView.m */; };
+		C54F54F31D22AA110021336E /* AAPLSectionHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B51D22AA110021336E /* AAPLSectionHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54F41D22AA110021336E /* AAPLSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B61D22AA110021336E /* AAPLSectionHeaderView.m */; };
+		C54F54F51D22AA110021336E /* AAPLSegmentedHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B71D22AA110021336E /* AAPLSegmentedHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54F61D22AA110021336E /* AAPLSegmentedHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */; };
+		C54F54F71D22AA110021336E /* AAPLTextValueCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B91D22AA110021336E /* AAPLTextValueCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54F54F81D22AA110021336E /* AAPLTextValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C54F54511D215CF10021336E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C54F543C1D215CED0021336E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C54F54441D215CED0021336E;
+			remoteInfo = AdvancedCollectionView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C54F54451D215CED0021336E /* AdvancedCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C54F54481D215CEE0021336E /* AdvancedCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedCollectionView.h; sourceTree = "<group>"; };
+		C54F544A1D215CEE0021336E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C54F544F1D215CF10021336E /* AdvancedCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvancedCollectionViewTests.m; sourceTree = "<group>"; };
+		C54F54561D215CF10021336E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C54F54621D22A9FF0021336E /* AAPLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAction.h; sourceTree = "<group>"; };
+		C54F54631D22A9FF0021336E /* AAPLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAction.m; sourceTree = "<group>"; };
+		C54F54641D22A9FF0021336E /* AAPLContentLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLContentLoading.h; sourceTree = "<group>"; };
+		C54F54651D22A9FF0021336E /* AAPLContentLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLContentLoading.m; sourceTree = "<group>"; };
+		C54F54661D22A9FF0021336E /* AAPLDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDebug.h; sourceTree = "<group>"; };
+		C54F54671D22A9FF0021336E /* AAPLDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDebug.m; sourceTree = "<group>"; };
+		C54F54681D22A9FF0021336E /* AAPLLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLLocalization.h; sourceTree = "<group>"; };
+		C54F54691D22A9FF0021336E /* AAPLStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLStateMachine.h; sourceTree = "<group>"; };
+		C54F546A1D22A9FF0021336E /* AAPLStateMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLStateMachine.m; sourceTree = "<group>"; };
+		C54F546B1D22A9FF0021336E /* AAPLTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTheme.h; sourceTree = "<group>"; };
+		C54F546C1D22A9FF0021336E /* AAPLTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTheme.m; sourceTree = "<group>"; };
+		C54F54791D22AA110021336E /* AAPLDataSource+Headers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AAPLDataSource+Headers.h"; sourceTree = "<group>"; };
+		C54F547A1D22AA110021336E /* AAPLDataSource+Headers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AAPLDataSource+Headers.m"; sourceTree = "<group>"; };
+		C54F547B1D22AA110021336E /* UICollectionView+SupplementaryViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+SupplementaryViews.h"; sourceTree = "<group>"; };
+		C54F547C1D22AA110021336E /* UICollectionView+SupplementaryViews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+SupplementaryViews.m"; sourceTree = "<group>"; };
+		C54F547D1D22AA110021336E /* UIView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Helpers.h"; sourceTree = "<group>"; };
+		C54F547E1D22AA110021336E /* UIView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Helpers.m"; sourceTree = "<group>"; };
+		C54F54801D22AA110021336E /* AAPLBasicDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBasicDataSource.h; sourceTree = "<group>"; };
+		C54F54811D22AA110021336E /* AAPLBasicDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLBasicDataSource.m; sourceTree = "<group>"; };
+		C54F54821D22AA110021336E /* AAPLComposedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLComposedDataSource.h; sourceTree = "<group>"; };
+		C54F54831D22AA110021336E /* AAPLComposedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLComposedDataSource.m; sourceTree = "<group>"; };
+		C54F54841D22AA110021336E /* AAPLDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDataSource.h; sourceTree = "<group>"; };
+		C54F54851D22AA110021336E /* AAPLDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDataSource.m; sourceTree = "<group>"; };
+		C54F54861D22AA110021336E /* AAPLDataSource_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDataSource_Private.h; sourceTree = "<group>"; };
+		C54F54871D22AA110021336E /* AAPLDataSourceMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDataSourceMapping.h; sourceTree = "<group>"; };
+		C54F54881D22AA110021336E /* AAPLDataSourceMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDataSourceMapping.m; sourceTree = "<group>"; };
+		C54F54891D22AA110021336E /* AAPLDataSourceMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDataSourceMetrics.h; sourceTree = "<group>"; };
+		C54F548A1D22AA110021336E /* AAPLDataSourceMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLDataSourceMetrics.m; sourceTree = "<group>"; };
+		C54F548B1D22AA110021336E /* AAPLDataSourceMetrics_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLDataSourceMetrics_Private.h; sourceTree = "<group>"; };
+		C54F548C1D22AA110021336E /* AAPLKeyValueDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLKeyValueDataSource.h; sourceTree = "<group>"; };
+		C54F548D1D22AA110021336E /* AAPLKeyValueDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLKeyValueDataSource.m; sourceTree = "<group>"; };
+		C54F548E1D22AA110021336E /* AAPLSegmentedDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSegmentedDataSource.h; sourceTree = "<group>"; };
+		C54F548F1D22AA110021336E /* AAPLSegmentedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSegmentedDataSource.m; sourceTree = "<group>"; };
+		C54F54901D22AA110021336E /* AAPLTextValueDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextValueDataSource.h; sourceTree = "<group>"; };
+		C54F54911D22AA110021336E /* AAPLTextValueDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextValueDataSource.m; sourceTree = "<group>"; };
+		C54F54931D22AA110021336E /* AAPLCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewLayout.h; sourceTree = "<group>"; };
+		C54F54941D22AA110021336E /* AAPLCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCollectionViewLayout.m; sourceTree = "<group>"; };
+		C54F54951D22AA110021336E /* AAPLCollectionViewLayout_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewLayout_Internal.h; sourceTree = "<group>"; };
+		C54F54961D22AA110021336E /* AAPLCollectionViewLayout_Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCollectionViewLayout_Internal.m; sourceTree = "<group>"; };
+		C54F54971D22AA110021336E /* AAPLCollectionViewLayout_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewLayout_Private.h; sourceTree = "<group>"; };
+		C54F54981D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		C54F54991D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		C54F549A1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewLayoutAttributes_Private.h; sourceTree = "<group>"; };
+		C54F549B1D22AA110021336E /* AAPLLayoutMetrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLLayoutMetrics.h; sourceTree = "<group>"; };
+		C54F549C1D22AA110021336E /* AAPLLayoutMetrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLLayoutMetrics.m; sourceTree = "<group>"; };
+		C54F549D1D22AA110021336E /* AAPLLayoutMetrics_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLLayoutMetrics_Private.h; sourceTree = "<group>"; };
+		C54F549E1D22AA110021336E /* AAPLShadowRegistrar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLShadowRegistrar.h; sourceTree = "<group>"; };
+		C54F549F1D22AA110021336E /* AAPLShadowRegistrar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLShadowRegistrar.m; sourceTree = "<group>"; };
+		C54F54A11D22AA110021336E /* AAPLCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewController.h; sourceTree = "<group>"; };
+		C54F54A21D22AA110021336E /* AAPLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCollectionViewController.m; sourceTree = "<group>"; };
+		C54F54A31D22AA110021336E /* AAPLSwipeToEditController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeToEditController.h; sourceTree = "<group>"; };
+		C54F54A41D22AA110021336E /* AAPLSwipeToEditController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeToEditController.m; sourceTree = "<group>"; };
+		C54F54A61D22AA110021336E /* AAPLBasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLBasicCell.h; sourceTree = "<group>"; };
+		C54F54A71D22AA110021336E /* AAPLBasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLBasicCell.m; sourceTree = "<group>"; };
+		C54F54A81D22AA110021336E /* AAPLCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewCell.h; sourceTree = "<group>"; };
+		C54F54A91D22AA110021336E /* AAPLCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCollectionViewCell.m; sourceTree = "<group>"; };
+		C54F54AA1D22AA110021336E /* AAPLCollectionViewCell_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCollectionViewCell_Private.h; sourceTree = "<group>"; };
+		C54F54AB1D22AA110021336E /* AAPLHairlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLHairlineView.h; sourceTree = "<group>"; };
+		C54F54AC1D22AA110021336E /* AAPLHairlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLHairlineView.m; sourceTree = "<group>"; };
+		C54F54AD1D22AA110021336E /* AAPLKeyValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLKeyValueCell.h; sourceTree = "<group>"; };
+		C54F54AE1D22AA110021336E /* AAPLKeyValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLKeyValueCell.m; sourceTree = "<group>"; };
+		C54F54AF1D22AA110021336E /* AAPLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLLabel.h; sourceTree = "<group>"; };
+		C54F54B01D22AA110021336E /* AAPLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLLabel.m; sourceTree = "<group>"; };
+		C54F54B11D22AA110021336E /* AAPLPinnableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPinnableHeaderView.h; sourceTree = "<group>"; };
+		C54F54B21D22AA110021336E /* AAPLPinnableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPinnableHeaderView.m; sourceTree = "<group>"; };
+		C54F54B31D22AA110021336E /* AAPLPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLPlaceholderView.h; sourceTree = "<group>"; };
+		C54F54B41D22AA110021336E /* AAPLPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLPlaceholderView.m; sourceTree = "<group>"; };
+		C54F54B51D22AA110021336E /* AAPLSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSectionHeaderView.h; sourceTree = "<group>"; };
+		C54F54B61D22AA110021336E /* AAPLSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSectionHeaderView.m; sourceTree = "<group>"; };
+		C54F54B71D22AA110021336E /* AAPLSegmentedHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSegmentedHeaderView.h; sourceTree = "<group>"; };
+		C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSegmentedHeaderView.m; sourceTree = "<group>"; };
+		C54F54B91D22AA110021336E /* AAPLTextValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextValueCell.h; sourceTree = "<group>"; };
+		C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextValueCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C54F54411D215CED0021336E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54F544C1D215CF10021336E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54F54501D215CF10021336E /* AdvancedCollectionView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C54F543B1D215CED0021336E = {
+			isa = PBXGroup;
+			children = (
+				C54F54471D215CED0021336E /* Source */,
+				C54F54531D215CF10021336E /* Tests */,
+				C54F54461D215CED0021336E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C54F54461D215CED0021336E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54451D215CED0021336E /* AdvancedCollectionView.framework */,
+				C54F544F1D215CF10021336E /* AdvancedCollectionViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C54F54471D215CED0021336E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54621D22A9FF0021336E /* AAPLAction.h */,
+				C54F54631D22A9FF0021336E /* AAPLAction.m */,
+				C54F54641D22A9FF0021336E /* AAPLContentLoading.h */,
+				C54F54651D22A9FF0021336E /* AAPLContentLoading.m */,
+				C54F54661D22A9FF0021336E /* AAPLDebug.h */,
+				C54F54671D22A9FF0021336E /* AAPLDebug.m */,
+				C54F54681D22A9FF0021336E /* AAPLLocalization.h */,
+				C54F54691D22A9FF0021336E /* AAPLStateMachine.h */,
+				C54F546A1D22A9FF0021336E /* AAPLStateMachine.m */,
+				C54F546B1D22A9FF0021336E /* AAPLTheme.h */,
+				C54F546C1D22A9FF0021336E /* AAPLTheme.m */,
+				C54F54481D215CEE0021336E /* AdvancedCollectionView.h */,
+				C54F54781D22AA110021336E /* Categories */,
+				C54F547F1D22AA110021336E /* DataSources */,
+				C54F54921D22AA110021336E /* Layouts */,
+				C54F54A01D22AA110021336E /* ViewControllers */,
+				C54F54A51D22AA110021336E /* Views */,
+				C54F544A1D215CEE0021336E /* Info.plist */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		C54F54531D215CF10021336E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */,
+				C54F54561D215CF10021336E /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C54F54781D22AA110021336E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54791D22AA110021336E /* AAPLDataSource+Headers.h */,
+				C54F547A1D22AA110021336E /* AAPLDataSource+Headers.m */,
+				C54F547B1D22AA110021336E /* UICollectionView+SupplementaryViews.h */,
+				C54F547C1D22AA110021336E /* UICollectionView+SupplementaryViews.m */,
+				C54F547D1D22AA110021336E /* UIView+Helpers.h */,
+				C54F547E1D22AA110021336E /* UIView+Helpers.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C54F547F1D22AA110021336E /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54801D22AA110021336E /* AAPLBasicDataSource.h */,
+				C54F54811D22AA110021336E /* AAPLBasicDataSource.m */,
+				C54F54821D22AA110021336E /* AAPLComposedDataSource.h */,
+				C54F54831D22AA110021336E /* AAPLComposedDataSource.m */,
+				C54F54841D22AA110021336E /* AAPLDataSource.h */,
+				C54F54851D22AA110021336E /* AAPLDataSource.m */,
+				C54F54861D22AA110021336E /* AAPLDataSource_Private.h */,
+				C54F54871D22AA110021336E /* AAPLDataSourceMapping.h */,
+				C54F54881D22AA110021336E /* AAPLDataSourceMapping.m */,
+				C54F54891D22AA110021336E /* AAPLDataSourceMetrics.h */,
+				C54F548A1D22AA110021336E /* AAPLDataSourceMetrics.m */,
+				C54F548B1D22AA110021336E /* AAPLDataSourceMetrics_Private.h */,
+				C54F548C1D22AA110021336E /* AAPLKeyValueDataSource.h */,
+				C54F548D1D22AA110021336E /* AAPLKeyValueDataSource.m */,
+				C54F548E1D22AA110021336E /* AAPLSegmentedDataSource.h */,
+				C54F548F1D22AA110021336E /* AAPLSegmentedDataSource.m */,
+				C54F54901D22AA110021336E /* AAPLTextValueDataSource.h */,
+				C54F54911D22AA110021336E /* AAPLTextValueDataSource.m */,
+			);
+			path = DataSources;
+			sourceTree = "<group>";
+		};
+		C54F54921D22AA110021336E /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54931D22AA110021336E /* AAPLCollectionViewLayout.h */,
+				C54F54941D22AA110021336E /* AAPLCollectionViewLayout.m */,
+				C54F54951D22AA110021336E /* AAPLCollectionViewLayout_Internal.h */,
+				C54F54961D22AA110021336E /* AAPLCollectionViewLayout_Internal.m */,
+				C54F54971D22AA110021336E /* AAPLCollectionViewLayout_Private.h */,
+				C54F54981D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h */,
+				C54F54991D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m */,
+				C54F549A1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h */,
+				C54F549B1D22AA110021336E /* AAPLLayoutMetrics.h */,
+				C54F549C1D22AA110021336E /* AAPLLayoutMetrics.m */,
+				C54F549D1D22AA110021336E /* AAPLLayoutMetrics_Private.h */,
+				C54F549E1D22AA110021336E /* AAPLShadowRegistrar.h */,
+				C54F549F1D22AA110021336E /* AAPLShadowRegistrar.m */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		C54F54A01D22AA110021336E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54A11D22AA110021336E /* AAPLCollectionViewController.h */,
+				C54F54A21D22AA110021336E /* AAPLCollectionViewController.m */,
+				C54F54A31D22AA110021336E /* AAPLSwipeToEditController.h */,
+				C54F54A41D22AA110021336E /* AAPLSwipeToEditController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C54F54A51D22AA110021336E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C54F54A61D22AA110021336E /* AAPLBasicCell.h */,
+				C54F54A71D22AA110021336E /* AAPLBasicCell.m */,
+				C54F54A81D22AA110021336E /* AAPLCollectionViewCell.h */,
+				C54F54A91D22AA110021336E /* AAPLCollectionViewCell.m */,
+				C54F54AA1D22AA110021336E /* AAPLCollectionViewCell_Private.h */,
+				C54F54AB1D22AA110021336E /* AAPLHairlineView.h */,
+				C54F54AC1D22AA110021336E /* AAPLHairlineView.m */,
+				C54F54AD1D22AA110021336E /* AAPLKeyValueCell.h */,
+				C54F54AE1D22AA110021336E /* AAPLKeyValueCell.m */,
+				C54F54AF1D22AA110021336E /* AAPLLabel.h */,
+				C54F54B01D22AA110021336E /* AAPLLabel.m */,
+				C54F54B11D22AA110021336E /* AAPLPinnableHeaderView.h */,
+				C54F54B21D22AA110021336E /* AAPLPinnableHeaderView.m */,
+				C54F54B31D22AA110021336E /* AAPLPlaceholderView.h */,
+				C54F54B41D22AA110021336E /* AAPLPlaceholderView.m */,
+				C54F54B51D22AA110021336E /* AAPLSectionHeaderView.h */,
+				C54F54B61D22AA110021336E /* AAPLSectionHeaderView.m */,
+				C54F54B71D22AA110021336E /* AAPLSegmentedHeaderView.h */,
+				C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */,
+				C54F54B91D22AA110021336E /* AAPLTextValueCell.h */,
+				C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C54F54421D215CED0021336E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54F54741D22A9FF0021336E /* AAPLStateMachine.h in Headers */,
+				C54F54C51D22AA110021336E /* AAPLDataSource.h in Headers */,
+				C54F54E21D22AA110021336E /* AAPLSwipeToEditController.h in Headers */,
+				C54F54C81D22AA110021336E /* AAPLDataSourceMapping.h in Headers */,
+				C54F54CD1D22AA110021336E /* AAPLKeyValueDataSource.h in Headers */,
+				C54F54C11D22AA110021336E /* AAPLBasicDataSource.h in Headers */,
+				C54F54E81D22AA110021336E /* AAPLCollectionViewCell_Private.h in Headers */,
+				C54F54E01D22AA110021336E /* AAPLCollectionViewController.h in Headers */,
+				C54F54EF1D22AA110021336E /* AAPLPinnableHeaderView.h in Headers */,
+				C54F54D71D22AA110021336E /* AAPLCollectionViewLayout_Private.h in Headers */,
+				C54F54DE1D22AA110021336E /* AAPLShadowRegistrar.h in Headers */,
+				C54F54F31D22AA110021336E /* AAPLSectionHeaderView.h in Headers */,
+				C54F54BD1D22AA110021336E /* UICollectionView+SupplementaryViews.h in Headers */,
+				C54F54D31D22AA110021336E /* AAPLCollectionViewLayout.h in Headers */,
+				C54F546D1D22A9FF0021336E /* AAPLAction.h in Headers */,
+				C54F54EB1D22AA110021336E /* AAPLKeyValueCell.h in Headers */,
+				C54F54CC1D22AA110021336E /* AAPLDataSourceMetrics_Private.h in Headers */,
+				C54F54DD1D22AA110021336E /* AAPLLayoutMetrics_Private.h in Headers */,
+				C54F54F11D22AA110021336E /* AAPLPlaceholderView.h in Headers */,
+				C54F54BF1D22AA110021336E /* UIView+Helpers.h in Headers */,
+				C54F54C31D22AA110021336E /* AAPLComposedDataSource.h in Headers */,
+				C54F54E91D22AA110021336E /* AAPLHairlineView.h in Headers */,
+				C54F54ED1D22AA110021336E /* AAPLLabel.h in Headers */,
+				C54F54D81D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h in Headers */,
+				C54F546F1D22A9FF0021336E /* AAPLContentLoading.h in Headers */,
+				C54F54711D22A9FF0021336E /* AAPLDebug.h in Headers */,
+				C54F54E61D22AA110021336E /* AAPLCollectionViewCell.h in Headers */,
+				C54F54761D22A9FF0021336E /* AAPLTheme.h in Headers */,
+				C54F54731D22A9FF0021336E /* AAPLLocalization.h in Headers */,
+				C54F54F51D22AA110021336E /* AAPLSegmentedHeaderView.h in Headers */,
+				C54F54E41D22AA110021336E /* AAPLBasicCell.h in Headers */,
+				C54F54D11D22AA110021336E /* AAPLTextValueDataSource.h in Headers */,
+				C54F54BB1D22AA110021336E /* AAPLDataSource+Headers.h in Headers */,
+				C54F54CA1D22AA110021336E /* AAPLDataSourceMetrics.h in Headers */,
+				C54F54DB1D22AA110021336E /* AAPLLayoutMetrics.h in Headers */,
+				C54F54491D215CEE0021336E /* AdvancedCollectionView.h in Headers */,
+				C54F54CF1D22AA110021336E /* AAPLSegmentedDataSource.h in Headers */,
+				C54F54D51D22AA110021336E /* AAPLCollectionViewLayout_Internal.h in Headers */,
+				C54F54F71D22AA110021336E /* AAPLTextValueCell.h in Headers */,
+				C54F54DA1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h in Headers */,
+				C54F54C71D22AA110021336E /* AAPLDataSource_Private.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		C54F54441D215CED0021336E /* AdvancedCollectionView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C54F54591D215CF10021336E /* Build configuration list for PBXNativeTarget "AdvancedCollectionView" */;
+			buildPhases = (
+				C54F54401D215CED0021336E /* Sources */,
+				C54F54411D215CED0021336E /* Frameworks */,
+				C54F54421D215CED0021336E /* Headers */,
+				C54F54431D215CED0021336E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdvancedCollectionView;
+			productName = AdvancedCollectionView;
+			productReference = C54F54451D215CED0021336E /* AdvancedCollectionView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C54F544E1D215CF10021336E /* AdvancedCollectionViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C54F545C1D215CF10021336E /* Build configuration list for PBXNativeTarget "AdvancedCollectionViewTests" */;
+			buildPhases = (
+				C54F544B1D215CF10021336E /* Sources */,
+				C54F544C1D215CF10021336E /* Frameworks */,
+				C54F544D1D215CF10021336E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C54F54521D215CF10021336E /* PBXTargetDependency */,
+			);
+			name = AdvancedCollectionViewTests;
+			productName = AdvancedCollectionViewTests;
+			productReference = C54F544F1D215CF10021336E /* AdvancedCollectionViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C54F543C1D215CED0021336E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Pierre-Jean Quilleré";
+				TargetAttributes = {
+					C54F54441D215CED0021336E = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					C54F544E1D215CF10021336E = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = C54F543F1D215CED0021336E /* Build configuration list for PBXProject "AdvancedCollectionView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C54F543B1D215CED0021336E;
+			productRefGroup = C54F54461D215CED0021336E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C54F54441D215CED0021336E /* AdvancedCollectionView */,
+				C54F544E1D215CF10021336E /* AdvancedCollectionViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C54F54431D215CED0021336E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54F544D1D215CF10021336E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C54F54401D215CED0021336E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54F54701D22A9FF0021336E /* AAPLContentLoading.m in Sources */,
+				C54F54BC1D22AA110021336E /* AAPLDataSource+Headers.m in Sources */,
+				C54F54E51D22AA110021336E /* AAPLBasicCell.m in Sources */,
+				C54F54D91D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m in Sources */,
+				C54F54C01D22AA110021336E /* UIView+Helpers.m in Sources */,
+				C54F54D41D22AA110021336E /* AAPLCollectionViewLayout.m in Sources */,
+				C54F54751D22A9FF0021336E /* AAPLStateMachine.m in Sources */,
+				C54F54E31D22AA110021336E /* AAPLSwipeToEditController.m in Sources */,
+				C54F54C21D22AA110021336E /* AAPLBasicDataSource.m in Sources */,
+				C54F54721D22A9FF0021336E /* AAPLDebug.m in Sources */,
+				C54F54F81D22AA110021336E /* AAPLTextValueCell.m in Sources */,
+				C54F54F21D22AA110021336E /* AAPLPlaceholderView.m in Sources */,
+				C54F54CB1D22AA110021336E /* AAPLDataSourceMetrics.m in Sources */,
+				C54F54D01D22AA110021336E /* AAPLSegmentedDataSource.m in Sources */,
+				C54F54EA1D22AA110021336E /* AAPLHairlineView.m in Sources */,
+				C54F54C61D22AA110021336E /* AAPLDataSource.m in Sources */,
+				C54F546E1D22A9FF0021336E /* AAPLAction.m in Sources */,
+				C54F54E71D22AA110021336E /* AAPLCollectionViewCell.m in Sources */,
+				C54F54EC1D22AA110021336E /* AAPLKeyValueCell.m in Sources */,
+				C54F54F61D22AA110021336E /* AAPLSegmentedHeaderView.m in Sources */,
+				C54F54E11D22AA110021336E /* AAPLCollectionViewController.m in Sources */,
+				C54F54D61D22AA110021336E /* AAPLCollectionViewLayout_Internal.m in Sources */,
+				C54F54DC1D22AA110021336E /* AAPLLayoutMetrics.m in Sources */,
+				C54F54EE1D22AA110021336E /* AAPLLabel.m in Sources */,
+				C54F54771D22A9FF0021336E /* AAPLTheme.m in Sources */,
+				C54F54F41D22AA110021336E /* AAPLSectionHeaderView.m in Sources */,
+				C54F54C41D22AA110021336E /* AAPLComposedDataSource.m in Sources */,
+				C54F54DF1D22AA110021336E /* AAPLShadowRegistrar.m in Sources */,
+				C54F54BE1D22AA110021336E /* UICollectionView+SupplementaryViews.m in Sources */,
+				C54F54CE1D22AA110021336E /* AAPLKeyValueDataSource.m in Sources */,
+				C54F54C91D22AA110021336E /* AAPLDataSourceMapping.m in Sources */,
+				C54F54F01D22AA110021336E /* AAPLPinnableHeaderView.m in Sources */,
+				C54F54D21D22AA110021336E /* AAPLTextValueDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C54F544B1D215CF10021336E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C54F54551D215CF10021336E /* AdvancedCollectionViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C54F54521D215CF10021336E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C54F54441D215CED0021336E /* AdvancedCollectionView */;
+			targetProxy = C54F54511D215CF10021336E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C54F54571D215CF10021336E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C54F54581D215CF10021336E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C54F545A1D215CF10021336E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+					i386,
+					x86_64,
+				);
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.AdvancedCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C54F545B1D215CF10021336E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+					i386,
+					x86_64,
+				);
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.AdvancedCollectionView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C54F545D1D215CF10021336E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AdvancedCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.AdvancedCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C54F545E1D215CF10021336E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AdvancedCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.AdvancedCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C54F543F1D215CED0021336E /* Build configuration list for PBXProject "AdvancedCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54F54571D215CF10021336E /* Debug */,
+				C54F54581D215CF10021336E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C54F54591D215CF10021336E /* Build configuration list for PBXNativeTarget "AdvancedCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54F545A1D215CF10021336E /* Debug */,
+				C54F545B1D215CF10021336E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C54F545C1D215CF10021336E /* Build configuration list for PBXNativeTarget "AdvancedCollectionViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C54F545D1D215CF10021336E /* Debug */,
+				C54F545E1D215CF10021336E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C54F543C1D215CED0021336E /* Project object */;
+}
