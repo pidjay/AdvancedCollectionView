@@ -50,7 +50,7 @@
 		C54F54D51D22AA110021336E /* AAPLCollectionViewLayout_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54951D22AA110021336E /* AAPLCollectionViewLayout_Internal.h */; };
 		C54F54D61D22AA110021336E /* AAPLCollectionViewLayout_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54961D22AA110021336E /* AAPLCollectionViewLayout_Internal.m */; };
 		C54F54D71D22AA110021336E /* AAPLCollectionViewLayout_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54971D22AA110021336E /* AAPLCollectionViewLayout_Private.h */; };
-		C54F54D81D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54981D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h */; };
+		C54F54D81D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54981D22AA110021336E /* AAPLCollectionViewLayoutAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54D91D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54991D22AA110021336E /* AAPLCollectionViewLayoutAttributes.m */; };
 		C54F54DA1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549A1D22AA110021336E /* AAPLCollectionViewLayoutAttributes_Private.h */; };
 		C54F54DB1D22AA110021336E /* AAPLLayoutMetrics.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F549B1D22AA110021336E /* AAPLLayoutMetrics.h */; settings = {ATTRIBUTES = (Public, ); }; };
