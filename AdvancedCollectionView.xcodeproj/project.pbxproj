@@ -45,7 +45,7 @@
 		C54F54D01D22AA110021336E /* AAPLSegmentedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F548F1D22AA110021336E /* AAPLSegmentedDataSource.m */; };
 		C54F54D11D22AA110021336E /* AAPLTextValueDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54901D22AA110021336E /* AAPLTextValueDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54D21D22AA110021336E /* AAPLTextValueDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54911D22AA110021336E /* AAPLTextValueDataSource.m */; };
-		C54F54D31D22AA110021336E /* AAPLCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54931D22AA110021336E /* AAPLCollectionViewLayout.h */; };
+		C54F54D31D22AA110021336E /* AAPLCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54931D22AA110021336E /* AAPLCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54D41D22AA110021336E /* AAPLCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54941D22AA110021336E /* AAPLCollectionViewLayout.m */; };
 		C54F54D51D22AA110021336E /* AAPLCollectionViewLayout_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54951D22AA110021336E /* AAPLCollectionViewLayout_Internal.h */; };
 		C54F54D61D22AA110021336E /* AAPLCollectionViewLayout_Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54961D22AA110021336E /* AAPLCollectionViewLayout_Internal.m */; };
