@@ -28,6 +28,7 @@ FOUNDATION_EXPORT const unsigned char AdvancedCollectionViewVersionString[];
 #import <AdvancedCollectionView/AAPLTextValueDataSource.h>
 
 // Layouts
+#import <AdvancedCollectionView/AAPLCollectionViewLayout.h>
 #import <AdvancedCollectionView/AAPLLayoutMetrics.h>
 
 // View Controllers
