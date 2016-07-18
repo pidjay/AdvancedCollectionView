@@ -188,6 +188,22 @@ static void * const AAPLDataSourceContext = @"DataSourceContext";
 
     UINavigationBar *navigationBar = self.navigationController.navigationBar;
     UITabBar *tabBar = self.tabBarController.tabBar;
+	
+	// Check if the navigation bar exists and is hidden, and we are inside a split view controller.
+	// This may mean that our navigationController could be inside another navigation controller and we should attempt to get a non hidden navigation bar higher up in the hierarchy.
+	if (navigationBar && navigationBar.hidden && self.splitViewController) {
+		UINavigationController* parentNavigationController = self.navigationController;
+		
+		while ((parentNavigationController = parentNavigationController.navigationController) != nil) {
+			UINavigationBar *currentNavigationBar = parentNavigationController.navigationBar;
+			
+			// Retrieve the first visible navigation bar and exit the loop
+			if (!currentNavigationBar.hidden) {
+				navigationBar = currentNavigationBar;
+				break;
+			}
+		}
+	}
 
     // If the content insets were calculated, and the orientation is the same, return calculated value
     if (_calculatedContentInsets && _orientationForCalculatedInsets == orientation && CGRectEqualToRect(bounds, _applicationFrameForCalculatedInsets) && navigationBar.hidden == _calculatedNavigationBarHiddenValue && tabBar.hidden == _calculatedTabBarHiddenValue)

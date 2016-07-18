@@ -1,7 +1,24 @@
-# AdvancedCollectionView
-AdvancedCollectionView: Advanced User Interfaces Using Collection View
+[![Version](http://img.shields.io/badge/version-0.1-red.svg?style=flat)](https://github.com/pidjay/AdvancedCollectionView)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/pidjay/AdvancedCollectionView)
 
-This sample demonstrates code factoring approaches for the UICollectionViewDataSource protocol that you can use to compose complex and rich data models. In addition, you’ll see how to implement swipe-to-edit and batch editing (including drag reordering). Finally, the code shows how to create a sophisticated, custom collection view layout that features pinning headers, global headers, and loading placeholders.
+# AdvancedCollectionView
+
+AdvancedCollectionView is a set of classes to help you handle the power of the collection view.
+
+## Features
+
+- [x] Basic data source
+- [x] Composed data source
+- [x] Segmented data source
+- [x] Selectively animate items on data source update
+- [x] Pinnable header
+- [ ] Sticky header
+- [ ] Stretchable header
+- [ ] Row & line spacing
+- [ ] Section background color
+
+If you have an idea for a new feature, please create a [new issue](https://github.com/pidjay/AdvancedCollectionView/issues/new).
 
 ## Requirements
 
@@ -13,4 +30,33 @@ Xcode 7, iOS 8 SDK or later
 
 iOS 8.0
 
-Copyright (C) 2015 Apple Inc. All rights reserved.
+## Installation
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate AdvancedCollectionView into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "pidjay/AdvancedCollectionView" ~> 0.1
+```
+
+Run `carthage update` to build the framework and drag the built `AdvancedCollectionView.framework` into your Xcode project.
+
+## FAQ
+
+#### Can I use any kind of layout with AdvancedCollectionView?
+
+Sadly, no. The purpose of this library is to give more flexibility than with UICollectionViewFlowLayout, not to make a silver bullet to create any kind of layout.
+
+#### When are features X, Y and Z going to be released?
+
+I don't know. I'm working on this project on my free time and as such I cannot commit on any kind of schedule. But if you feel like it, you could take matters into your own hands and do a pull request.
