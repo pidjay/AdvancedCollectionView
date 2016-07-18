@@ -204,6 +204,7 @@
 				C54F54461D215CED0021336E /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		C54F54461D215CED0021336E /* Products */ = {
 			isa = PBXGroup;
