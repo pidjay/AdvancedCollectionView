@@ -131,7 +131,7 @@ NSString * const AAPLSegmentedDataSourceHeaderKey = @"AAPLSegmentedDataSourceHea
         direction = (oldIndex < newIndex) ? AAPLDataSourceSectionOperationDirectionRight : AAPLDataSourceSectionOperationDirectionLeft;
     }
 
-    NSIndexSet *removedSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfOldSections)];;
+    NSIndexSet *removedSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfOldSections)];
     NSIndexSet *insertedSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, numberOfNewSections)];
 
     // Update the sections all at once.

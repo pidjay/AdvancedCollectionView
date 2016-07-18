@@ -1066,7 +1066,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 {
     LAYOUT_LOG(@"kind=%@ indexPath=%@", kind, AAPLStringFromNSIndexPath(indexPath));
 
-    AAPLCollectionViewLayoutAttributes *result = [[self.oldLayoutInfo layoutAttributesForDecorationViewOfKind:kind atIndexPath:indexPath] copy];;
+    AAPLCollectionViewLayoutAttributes *result = [[self.oldLayoutInfo layoutAttributesForDecorationViewOfKind:kind atIndexPath:indexPath] copy];
     if (!result)
         return result;
 
@@ -1557,7 +1557,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
 - (AAPLCollectionViewLayoutAttributes *)initialLayoutAttributesForAttributes:(AAPLCollectionViewLayoutAttributes *)attributes
 {
-    attributes.frame = CGRectOffset(attributes.frame, -self.contentOffsetDelta.x, -self.contentOffsetDelta.y);;
+    attributes.frame = CGRectOffset(attributes.frame, -self.contentOffsetDelta.x, -self.contentOffsetDelta.y);
     NSAssert(attributes != nil, @"Shouldn't have nil attributes");
     return attributes;
 }
