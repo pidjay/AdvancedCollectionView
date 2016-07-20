@@ -13,7 +13,8 @@
 		C56043221D280F84008C7417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C560431C1D280F84008C7417 /* Assets.xcassets */; };
 		C56043231D280F84008C7417 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C560431D1D280F84008C7417 /* LaunchScreen.storyboard */; };
 		C56043241D280F84008C7417 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C560431F1D280F84008C7417 /* Main.storyboard */; };
-		C56043251D280F84008C7417 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C56043211D280F84008C7417 /* Info.plist */; };
+		C56043291D288F42008C7417 /* AdvancedCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56043281D288F42008C7417 /* AdvancedCollectionView.framework */; };
+		C560432B1D293AF1008C7417 /* DetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C560432A1D293AF1008C7417 /* DetailDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,8 @@
 		C560431E1D280F84008C7417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C56043201D280F84008C7417 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C56043211D280F84008C7417 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C56043281D288F42008C7417 /* AdvancedCollectionView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdvancedCollectionView.framework; path = Carthage/Build/iOS/AdvancedCollectionView.framework; sourceTree = "<group>"; };
+		C560432A1D293AF1008C7417 /* DetailDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C56043291D288F42008C7417 /* AdvancedCollectionView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +45,7 @@
 		C56042F41D280CFB008C7417 = {
 			isa = PBXGroup;
 			children = (
+				C56043281D288F42008C7417 /* AdvancedCollectionView.framework */,
 				C56043141D280F75008C7417 /* Source */,
 				C560431B1D280F84008C7417 /* Resources */,
 				C56042FE1D280CFB008C7417 /* Products */,
@@ -59,8 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				C56043151D280F75008C7417 /* AppDelegate.swift */,
-				C56043161D280F75008C7417 /* DetailViewController.swift */,
 				C56043171D280F75008C7417 /* MasterViewController.swift */,
+				C56043161D280F75008C7417 /* DetailViewController.swift */,
+				C560432A1D293AF1008C7417 /* DetailDataSource.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -86,6 +92,7 @@
 				C56042F91D280CFB008C7417 /* Sources */,
 				C56042FA1D280CFB008C7417 /* Frameworks */,
 				C56042FB1D280CFB008C7417 /* Resources */,
+				C56043271D288F06008C7417 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -134,7 +141,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C56043251D280F84008C7417 /* Info.plist in Resources */,
 				C56043241D280F84008C7417 /* Main.storyboard in Resources */,
 				C56043221D280F84008C7417 /* Assets.xcassets in Resources */,
 				C56043231D280F84008C7417 /* LaunchScreen.storyboard in Resources */,
@@ -142,6 +148,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C56043271D288F06008C7417 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AdvancedCollectionView.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C56042F91D280CFB008C7417 /* Sources */ = {
@@ -151,6 +174,7 @@
 				C56043181D280F75008C7417 /* AppDelegate.swift in Sources */,
 				C56043191D280F75008C7417 /* DetailViewController.swift in Sources */,
 				C560431A1D280F75008C7417 /* MasterViewController.swift in Sources */,
+				C560432B1D293AF1008C7417 /* DetailDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +287,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.Example;
@@ -274,6 +302,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = fr.quillere.Example;
