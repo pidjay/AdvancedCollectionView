@@ -23,7 +23,7 @@ class DetailViewController: AAPLCollectionViewController {
 	
 	private lazy var basicDataSource     = BasicDataSource()
 	private lazy var composedDataSource  = ComposedDataSource()
-	private lazy var segmentedDataSource = BasicDataSource()
+	private lazy var segmentedDataSource = SegmentedDataSource()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

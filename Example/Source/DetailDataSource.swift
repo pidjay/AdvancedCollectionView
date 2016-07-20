@@ -87,3 +87,25 @@ class ComposedDataSource: AAPLComposedDataSource {
 		return dataSource
 	}
 }
+
+class SegmentedDataSource: AAPLSegmentedDataSource {
+	
+	override init() {
+		super.init()
+		
+		let basic1 = self.basicDataSourceWithTitle("Basic 1")
+		let basic2 = self.basicDataSourceWithTitle("Basic 2")
+		let basic3 = self.basicDataSourceWithTitle("Basic 3")
+		
+		self.addDataSource(basic1)
+		self.addDataSource(basic2)
+		self.addDataSource(basic3)
+	}
+	
+	private func basicDataSourceWithTitle(title: String) -> BasicDataSource {
+		let dataSource = BasicDataSource()
+		dataSource.title = title
+		
+		return dataSource
+	}
+}
