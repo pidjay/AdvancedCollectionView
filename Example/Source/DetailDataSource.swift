@@ -9,7 +9,7 @@
 import UIKit
 import AdvancedCollectionView
 
-class DetailDataSource: AAPLBasicDataSource {
+class BasicDataSource: AAPLBasicDataSource {
 	
 	override init() {
 		super.init()
@@ -54,4 +54,36 @@ class DetailDataSource: AAPLBasicDataSource {
 		}
 	}
 
+}
+
+class ComposedDataSource: AAPLComposedDataSource {
+	
+	override init() {
+		super.init()
+		
+		let basic1 = self.sectionDataSourceWithTitle("Basic Data Source 1")
+		let basic2 = self.sectionDataSourceWithTitle("Basic Data Source 2")
+		let basic3 = self.sectionDataSourceWithTitle("Basic Data Source 3")
+		
+		self.addDataSource(basic1)
+		self.addDataSource(basic2)
+		self.addDataSource(basic3)
+	}
+	
+	private func sectionDataSourceWithTitle(title: String) -> BasicDataSource {
+		let dataSource = BasicDataSource()
+		dataSource.title = title
+		
+		let header = dataSource.newSectionHeader()
+		header.shouldPin              = true
+		header.supplementaryViewClass = AAPLSectionHeaderView.self
+		header.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
+		header.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
+		header.configureView          = { (reusableView, dataSource, indexPath) -> Void in
+			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
+			headerView.leftText = title
+		}
+		
+		return dataSource
+	}
 }

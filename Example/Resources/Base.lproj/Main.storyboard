@@ -63,7 +63,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showBasicDataSource" id="6S0-TO-JiA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="E4C-Ql-PfL" style="IBUITableViewCellStyleDefault" id="o33-ei-ZdZ">
@@ -83,6 +83,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showComposedDataSource" id="3Kd-sP-ctR"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="xNV-Bs-Zii" style="IBUITableViewCellStyleDefault" id="MZr-f6-Tie">
                                         <rect key="frame" x="0.0" y="202" width="600" height="44"/>
@@ -101,6 +104,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showSegmentedDataSource" id="URh-N1-G6R"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -153,6 +159,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="URh-N1-G6R"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,15 +9,37 @@
 import UIKit
 import AdvancedCollectionView
 
+enum DataSourceType {
+	case Basic
+	case Composed
+	case Segmented
+}
 
 class DetailViewController: AAPLCollectionViewController {
 	
-	let dataSource = DetailDataSource()
+	var dataSourceType: DataSourceType?
+	
+	private var dataSource: AAPLDataSource!
+	
+	private lazy var basicDataSource     = BasicDataSource()
+	private lazy var composedDataSource  = ComposedDataSource()
+	private lazy var segmentedDataSource = BasicDataSource()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		guard let collectionView = self.collectionView else { return }
+		guard let collectionView = self.collectionView, dataSourceType = self.dataSourceType else { return }
+		
+		let dataSource: AAPLDataSource
+		switch dataSourceType {
+		case .Basic:
+			dataSource = self.basicDataSource
+		case .Composed:
+			dataSource = self.composedDataSource
+		case .Segmented:
+			dataSource = self.segmentedDataSource
+		}
+		self.dataSource = dataSource
 		
 		collectionView.dataSource = self.dataSource
 		collectionView.backgroundColor = UIColor.whiteColor()

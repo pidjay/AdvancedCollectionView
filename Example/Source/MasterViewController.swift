@@ -36,14 +36,16 @@ class MasterViewController: UITableViewController {
 	// MARK: - Segues
 
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-		if segue.identifier == "showDetail" {
-//		    if let indexPath = self.tableView.indexPathForSelectedRow {
-//		        let object = objects[indexPath.row] as! NSDate
-//		        let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-//		        controller.detailItem = object
-//		        controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
-//		        controller.navigationItem.leftItemsSupplementBackButton = true
-//		    }
+		guard let detailController = (segue.destinationViewController as! UINavigationController).topViewController as? DetailViewController else { return }
+		
+		if segue.identifier == "showBasicDataSource" {
+			detailController.dataSourceType = .Basic
+		}
+		else if segue.identifier == "showComposedDataSource" {
+			detailController.dataSourceType = .Composed
+		}
+		else if segue.identifier == "showSegmentedDataSource" {
+			detailController.dataSourceType = .Segmented
 		}
 	}
 
