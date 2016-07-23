@@ -53,6 +53,24 @@ class BasicDataSource: AAPLBasicDataSource {
 			
 		}
 	}
+	
+	override func primaryActionsForItemAtIndexPath(indexPath: NSIndexPath) -> [AAPLAction] {
+		return [
+			AAPLAction.destructiveActionWithTitle("Delete", selector: Selector("swipeToDeleteCell:")),
+			AAPLAction(title: "Action 1", selector: Selector("testSelectorCell:")),
+			AAPLAction(title: "Action 2", selector: Selector("testSelectorCell:"))
+		]
+	}
+	
+	override func secondaryActionsForItemAtIndexPath(indexPath: NSIndexPath) -> [AAPLAction] {
+		return [
+			AAPLAction(title: "Favorite", selector: Selector("testSelectorCell:"))
+		]
+	}
+	
+	func testSelectorCell(cell: AAPLCollectionViewCell) {
+		
+	}
 
 }
 
