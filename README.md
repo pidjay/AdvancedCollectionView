@@ -1,4 +1,6 @@
+[![Build Status](https://travis-ci.org/pidjay/AdvancedCollectionView.svg)](https://travis-ci.org/pidjay/AdvancedCollectionView)
 [![Version](http://img.shields.io/badge/version-0.1-red.svg?style=flat)](https://github.com/pidjay/AdvancedCollectionView)
+[![codecov](https://codecov.io/gh/pidjay/AdvancedCollectionView/branch/master/graph/badge.svg)](https://codecov.io/gh/pidjay/AdvancedCollectionView)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Platform](https://img.shields.io/badge/platform-ios-lightgrey.svg?style=flat)](https://github.com/pidjay/AdvancedCollectionView)
 
