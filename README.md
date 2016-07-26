@@ -62,3 +62,7 @@ Sadly, no. The purpose of this library is to give more flexibility than with UIC
 #### When are features X, Y and Z going to be released?
 
 I don't know. I'm working on this project on my free time and as such I cannot commit on any kind of schedule. But if you feel like it, you could take matters into your own hands and do a pull request.
+
+#### Should I upgrade the framework to the latest version?
+
+AdvancedCollectionView is using Semantic Versioning and as such it follows specific guidelines for adding, deprecating or removing new features, but also when making incompatible changes in the API. So, as long as the release is not MAJOR (first number in the version changing), you should be safe. You can read more about it on [semver.org](http://semver.org).
