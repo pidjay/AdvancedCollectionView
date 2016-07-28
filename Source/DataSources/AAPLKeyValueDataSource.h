@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-typedef __nullable NSString * (^AAPLKeyValueTransformer)(__nullable id value);
-typedef __nullable UIImage * (^AAPLKeyValueImageTransformer)(__nullable id value);
+typedef NSString * _Nullable (^AAPLKeyValueTransformer)(_Nullable id value);
+typedef UIImage * _Nullable (^AAPLKeyValueImageTransformer)(_Nullable id value);
 
 typedef NS_ENUM(NSInteger, AAPLKeyValueItemType) {
     AAPLKeyValueItemTypeDefault = 0,

@@ -80,7 +80,7 @@ typedef void (^AAPLLoadingUpdateBlock)(id object);
 @property (nonatomic, readonly, getter = isCancelled) BOOL cancelled;
 
 /// create a new loading helper
-+ (instancetype)loadingProgressWithCompletionHandler:(void(^)(__nullable NSString *state, __nullable NSError *error, __nullable AAPLLoadingUpdateBlock update))handler;
++ (instancetype)loadingProgressWithCompletionHandler:(void(^)(NSString * _Nullable state, NSError * _Nullable error, _Nullable AAPLLoadingUpdateBlock update))handler;
 
 @end
 
