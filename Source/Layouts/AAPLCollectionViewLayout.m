@@ -1554,7 +1554,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     if (section.nonPinnableHeaders && section.nonPinnableHeaders.count) {
         [self resetPinnableSupplementaryItems:section.nonPinnableHeaders invalidationContext:invalidationContext];
         nonPinnableY = [self applyBottomPinningToSupplementaryItems:section.nonPinnableHeaders maxY:nonPinnableY invalidationContext:invalidationContext];
-        [self finalizePinningForSupplementaryItems:section.nonPinnableHeaders zIndex:PINNED_HEADER_ZINDEX];
+        [self finalizePinningForSupplementaryItems:section.nonPinnableHeaders zIndex:HEADER_ZINDEX];
     }
 
     if (section.backgroundAttribute) {
