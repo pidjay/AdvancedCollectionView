@@ -1459,9 +1459,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 }
 
 // pin the attributes starting at minY as long a they don't cross maxY and return the new minY
-- (CGFloat)applyTopPinningToSupplementaryItems:(NSArray *)supplementaryItems minY:(CGFloat)originalMinY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
+- (CGFloat)applyTopPinningToSupplementaryItems:(NSArray *)supplementaryItems minY:(CGFloat)originalMinY maxY:(CGFloat)maxY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
 {
     __block CGFloat minY = originalMinY;
+    __block CGFloat pushDelta = 0.0; // delta to position the supplementary items (headers) after it's reached maxY (ex: it's been pushed by the next section)
 
     [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
 
@@ -1473,14 +1474,28 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
         if (frame.origin.y < minY) {
             frame.origin.y = minY;
+            
+            if (CGRectGetMaxY(frame) > maxY) {
+                pushDelta = frame.size.height - (maxY - minY);
+            }
+            
             minY = CGRectGetMaxY(frame);    // we have a new pinning offset
             layoutAttributes.frame = frame;
 
             [invalidationContext invalidateSupplementaryElementsOfKind:layoutAttributes.representedElementKind atIndexPaths:@[layoutAttributes.indexPath]];
         }
     }];
+    
+    if (pushDelta > 0.0) {
+        [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger idx, BOOL * _Nonnull stop) {
+            AAPLCollectionViewLayoutAttributes *layoutAttributes = supplementaryItem.layoutAttributes;
+            CGRect frame = layoutAttributes.frame;
+            frame.origin.y -= pushDelta;
+            layoutAttributes.frame = frame;
+        }];
+    }
 
-    return minY;
+    return minY - pushDelta;
 }
 
 - (void)finalizePinningForSupplementaryItems:(NSArray *)supplementaryItems zIndex:(NSInteger)zIndex
@@ -1530,7 +1545,9 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     // Pin the headers as appropriate
     AAPLLayoutSection *section = [self sectionInfoForSectionAtIndex:AAPLGlobalSectionIndex];
     if (section.pinnableHeaders) {
-        pinnableY = [self applyTopPinningToSupplementaryItems:section.pinnableHeaders minY:pinnableY invalidationContext:invalidationContext];
+        // Global header that are pinned should never be pushed
+        CGFloat maxY = CGFLOAT_MAX;
+        pinnableY = [self applyTopPinningToSupplementaryItems:section.pinnableHeaders minY:pinnableY maxY:maxY invalidationContext:invalidationContext];
         [self finalizePinningForSupplementaryItems:section.pinnableHeaders zIndex:PINNED_HEADER_ZINDEX];
     }
 
@@ -1547,10 +1564,12 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         frame.size.height =  bottomY - frame.origin.y;
         section.backgroundAttribute.frame = frame;
     }
-
+    
     AAPLLayoutSection *overlappingSection = [self firstSectionOverlappingYOffset:pinnableY];
     if (overlappingSection) {
-        [self applyTopPinningToSupplementaryItems:overlappingSection.pinnableHeaders minY:pinnableY invalidationContext:invalidationContext];
+        // Normal header that are pinned should be pushed when reaching the end of their section
+        CGFloat maxY = CGRectGetMaxY(overlappingSection.frame);
+        [self applyTopPinningToSupplementaryItems:overlappingSection.pinnableHeaders minY:pinnableY maxY:maxY invalidationContext:invalidationContext];
         [self finalizePinningForSupplementaryItems:overlappingSection.pinnableHeaders zIndex:PINNED_HEADER_ZINDEX - 100];
     };
 }
