@@ -83,6 +83,7 @@
 		C54F54F61D22AA110021336E /* AAPLSegmentedHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */; };
 		C54F54F71D22AA110021336E /* AAPLTextValueCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B91D22AA110021336E /* AAPLTextValueCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54F81D22AA110021336E /* AAPLTextValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */; };
+		C5CEEBA51D4DFDD100146125 /* BasicDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,7 @@
 		C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSegmentedHeaderView.m; sourceTree = "<group>"; };
 		C54F54B91D22AA110021336E /* AAPLTextValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextValueCell.h; sourceTree = "<group>"; };
 		C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextValueCell.m; sourceTree = "<group>"; };
+		C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicDataSourceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */,
+				C5CEEBA21D4DFDD100146125 /* DataSourceTests */,
 				C54F54561D215CF10021336E /* Info.plist */,
 			);
 			path = Tests;
@@ -344,6 +347,14 @@
 				C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C5CEEBA21D4DFDD100146125 /* DataSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */,
+			);
+			path = DataSourceTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -534,6 +545,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C54F54551D215CF10021336E /* AdvancedCollectionViewTests.m in Sources */,
+				C5CEEBA51D4DFDD100146125 /* BasicDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
