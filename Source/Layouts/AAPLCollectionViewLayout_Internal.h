@@ -157,6 +157,7 @@
 /// The layout information
 @interface AAPLLayoutInfo : NSObject <AAPLLayoutAttributesResolving, NSCopying>
 @property (nonatomic) CGSize collectionViewSize;
+@property (nonatomic) UIEdgeInsets collectionViewContentInset;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 /// The additional height that's available to placeholders

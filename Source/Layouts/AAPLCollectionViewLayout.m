@@ -647,8 +647,14 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     BOOL invalidateEverything = context.invalidateEverything;
 
     // The collectionView has changed width, reevaluate the layout…
-    if (_layoutInfo.collectionViewSize.width != self.collectionView.bounds.size.width)
+    if (_layoutInfo.collectionViewSize.width != self.collectionView.bounds.size.width) {
         invalidateEverything = YES;
+    }
+    
+    // The collection view has changed content insets, reevaluate the layout...
+    if (!UIEdgeInsetsEqualToEdgeInsets(_layoutInfo.collectionViewContentInset, self.collectionView.contentInset)) {
+        invalidateEverything = YES;
+    }
 
     LAYOUT_LOG(@"invalidateDataSourceCounts = %@ invalidateEverything=%@", (invalidateDataSourceCounts ? @"YES" : @"NO"), (invalidateEverything ? @"YES" : @"NO"));
 
@@ -1263,6 +1269,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     NSInteger numberOfSections = [collectionView numberOfSections];
 
     _layoutInfo.collectionViewSize = collectionView.bounds.size;
+    _layoutInfo.collectionViewContentInset = collectionView.contentInset;
     _layoutInfo.width = width;
     _layoutInfo.height = height;
 
