@@ -880,7 +880,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         AAPLLayoutSection *sectionInfo = [self sectionInfoForSectionAtIndex:firstInsertedIndex];
         CGFloat minY = CGRectGetMinY(sectionInfo.frame);
         if (targetContentOffset.y + globalPinnableHeight > minY) {
-            // need to make the section visable
+            // need to make the section visible
             targetContentOffset.y = MAX(globalNonPinnableHeight, minY - globalPinnableHeight);
         }
     }
