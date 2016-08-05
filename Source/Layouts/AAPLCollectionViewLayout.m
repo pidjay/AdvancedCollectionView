@@ -863,30 +863,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
 {
-    UICollectionView *collectionView = self.collectionView;
-    UIEdgeInsets insets = collectionView.contentInset;
     CGPoint targetContentOffset = proposedContentOffset;
-    targetContentOffset.y += insets.top;
-
-    CGFloat availableHeight = CGRectGetHeight(UIEdgeInsetsInsetRect(collectionView.bounds, insets));
-    targetContentOffset.y = MIN(targetContentOffset.y, MAX(0, _layoutSize.height - availableHeight));
-
-    NSInteger firstInsertedIndex = [self.insertedSections firstIndex];
-    if (NSNotFound != firstInsertedIndex && AAPLDataSourceSectionOperationDirectionNone != [self.updateSectionDirections[@(firstInsertedIndex)] integerValue]) {
-        AAPLLayoutSection *globalSection = [self sectionInfoForSectionAtIndex:AAPLGlobalSectionIndex];
-        CGFloat globalNonPinnableHeight = globalSection.heightOfNonPinningHeaders;
-        CGFloat globalPinnableHeight = CGRectGetHeight(globalSection.frame) - globalNonPinnableHeight;
-
-        AAPLLayoutSection *sectionInfo = [self sectionInfoForSectionAtIndex:firstInsertedIndex];
-        CGFloat minY = CGRectGetMinY(sectionInfo.frame);
-        if (targetContentOffset.y + globalPinnableHeight > minY) {
-            // need to make the section visible
-            targetContentOffset.y = MAX(globalNonPinnableHeight, minY - globalPinnableHeight);
-        }
-    }
-
-    targetContentOffset.y -= insets.top;
-
     LAYOUT_LOG(@"proposedContentOffset=%@ layoutSize=%@ availableHeight=%g targetContentOffset=%@", NSStringFromCGPoint(proposedContentOffset), NSStringFromCGSize(_layoutSize), availableHeight, NSStringFromCGPoint(targetContentOffset));
     return targetContentOffset;
 }
