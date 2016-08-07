@@ -1030,8 +1030,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     BOOL inserted = [self.insertedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
-    if (inserted)
+    if (inserted) {
         result.alpha = 0;
+        result.zIndex = 0;
+    }
 
     if (reloaded) {
         if (![self.oldLayoutInfo layoutAttributesForDecorationViewOfKind:kind atIndexPath:indexPath])
@@ -1150,8 +1152,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     BOOL inserted = [self.insertedSections containsIndex:section] || [self.insertedIndexPaths containsObject:indexPath];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
-    if (inserted)
+    if (inserted) {
         result.alpha = 0;
+        result.zIndex = 0;
+    }
 
     if (reloaded) {
         if (![self.oldLayoutInfo layoutAttributesForCellAtIndexPath:indexPath])
