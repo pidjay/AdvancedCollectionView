@@ -1027,10 +1027,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction)
-        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
-
     BOOL inserted = [self.insertedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
@@ -1041,6 +1037,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         if (![self.oldLayoutInfo layoutAttributesForDecorationViewOfKind:kind atIndexPath:indexPath])
             result.alpha = 0;
     }
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && inserted)
+        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
 
     return [self initialLayoutAttributesForAttributes:result];
 }
@@ -1055,10 +1055,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction)
-        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
-
     BOOL removed = [self.removedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
@@ -1069,6 +1065,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         if (![self.layoutInfo layoutAttributesForDecorationViewOfKind:kind atIndexPath:indexPath])
             result.alpha = 0;
     }
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && removed)
+        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
 
     return [self finalLayoutAttributesForAttributes:result];
 }
@@ -1083,16 +1083,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction) {
-        if ([AAPLCollectionElementKindPlaceholder isEqualToString:kind]) {
-            result.alpha = 0;
-            return [self initialLayoutAttributesForAttributes:result];
-        }
-
-        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
-    }
-
     BOOL inserted = [self.insertedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
@@ -1103,6 +1093,16 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     else if (reloaded) {
         if (![self.oldLayoutInfo layoutAttributesForSupplementaryItemOfKind:kind atIndexPath:indexPath])
             result.alpha = 0;
+    }
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && inserted) {
+        if ([AAPLCollectionElementKindPlaceholder isEqualToString:kind]) {
+            result.alpha = 0;
+            return [self initialLayoutAttributesForAttributes:result];
+        }
+        
+        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
     }
 
     return result;
@@ -1118,21 +1118,21 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction) {
-        if ([AAPLCollectionElementKindPlaceholder isEqualToString:kind]) {
-            result.alpha = 0;
-            return [self finalLayoutAttributesForAttributes:result];
-        }
-
-        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
-    }
-
     BOOL removed = [self.removedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
     if (removed || reloaded)
         result.alpha = 0;
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && removed) {
+        if ([AAPLCollectionElementKindPlaceholder isEqualToString:kind]) {
+            result.alpha = 0;
+            return [self finalLayoutAttributesForAttributes:result];
+        }
+        
+        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
+    }
 
     return [self finalLayoutAttributesForAttributes:result];
 }
@@ -1147,10 +1147,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction)
-        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
-
     BOOL inserted = [self.insertedSections containsIndex:section] || [self.insertedIndexPaths containsObject:indexPath];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
 
@@ -1161,6 +1157,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         if (![self.oldLayoutInfo layoutAttributesForCellAtIndexPath:indexPath])
             result.alpha = 0;
     }
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && inserted)
+        return [self initialLayoutAttributesForAttributes:result slidingInFromDirection:direction];
 
     result = [self initialLayoutAttributesForAttributes:result];
     LAYOUT_LOG(@"frame=%@", NSStringFromCGRect(result.frame));
@@ -1177,10 +1177,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     NSInteger section = (indexPath.length > 1 ? indexPath.section : AAPLGlobalSectionIndex);
 
-    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
-    if (AAPLDataSourceSectionOperationDirectionNone != direction)
-        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
-
     BOOL deletedItem = [self.removedIndexPaths containsObject:indexPath];
     BOOL removed = [self.removedSections containsIndex:section];
     BOOL reloaded = [self.reloadedSections containsIndex:section];
@@ -1193,6 +1189,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         if (![self.layoutInfo layoutAttributesForCellAtIndexPath:indexPath])
             result.alpha = 0;
     }
+    
+    AAPLDataSourceSectionOperationDirection direction = [self operationDirectionForSectionAtIndex:section];
+    if (AAPLDataSourceSectionOperationDirectionNone != direction && (removed || deletedItem))
+        return [self finalLayoutAttributesForAttributes:result slidingAwayFromDirection:direction];
 
     return [self finalLayoutAttributesForAttributes:result];
 }
