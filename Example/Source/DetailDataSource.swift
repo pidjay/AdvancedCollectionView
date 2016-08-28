@@ -94,6 +94,7 @@ class ComposedDataSource: AAPLComposedDataSource {
 		header2.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
 		header2.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
 		header2.stickedBackgroundColor = UIColor(red: 0.3, green: 0.6, blue: 0.3, alpha: 1.0)
+		header2.pinnedSeparatorColor   = UIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
 		header2.visibleWhileShowingPlaceholder = true
 		header2.configureView          = { (reusableView, dataSource, indexPath) -> Void in
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
@@ -130,11 +131,24 @@ class ComposedDataSource: AAPLComposedDataSource {
 		header3.shouldStick            = false
 		header3.supplementaryViewClass = AAPLSectionHeaderView.self
 		header3.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
-		header3.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
+		header3.pinnedBackgroundColor  = UIColor(white: 0.93, alpha: 1.0)
 		header3.visibleWhileShowingPlaceholder = true
 		header3.configureView          = { (reusableView, dataSource, indexPath) -> Void in
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
 			headerView.leftText = "PIN_0"
+		}
+		
+		let header6 = self.newHeaderForKey("PIN_1")
+		header6.shouldPin              = true
+		header6.shouldStick            = false
+		header6.supplementaryViewClass = AAPLSectionHeaderView.self
+		header6.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
+		header6.pinnedBackgroundColor  = UIColor(white: 0.93, alpha: 1.0)
+		header6.showsSeparator         = true
+		header6.visibleWhileShowingPlaceholder = true
+		header6.configureView          = { (reusableView, dataSource, indexPath) -> Void in
+			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
+			headerView.leftText = "PIN_1"
 		}
 		
 		let header4 = self.newHeaderForKey("NORMAL_1")
@@ -148,18 +162,6 @@ class ComposedDataSource: AAPLComposedDataSource {
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
 			headerView.leftText = "NORMAL_1"
 		}
-		
-		let header6 = self.newHeaderForKey("PIN_1")
-		header6.shouldPin              = true
-		header6.shouldStick            = false
-		header6.supplementaryViewClass = AAPLSectionHeaderView.self
-		header6.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
-		header6.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
-		header6.visibleWhileShowingPlaceholder = true
-		header6.configureView          = { (reusableView, dataSource, indexPath) -> Void in
-			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
-			headerView.leftText = "PIN_1"
-		}
 	}
 	
 	private func sectionDataSourceWithTitle(title: String) -> BasicDataSource {
@@ -171,6 +173,7 @@ class ComposedDataSource: AAPLComposedDataSource {
 		header.supplementaryViewClass = AAPLSectionHeaderView.self
 		header.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
 		header.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
+		header.showsSeparator         = true
 		header.configureView          = { (reusableView, dataSource, indexPath) -> Void in
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
 			headerView.leftText = title
