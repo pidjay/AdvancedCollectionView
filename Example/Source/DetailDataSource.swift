@@ -104,7 +104,7 @@ class ComposedDataSource: AAPLComposedDataSource {
 		header1.shouldStick            = true
 		header1.supplementaryViewClass = AAPLSectionHeaderView.self
 		header1.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
-		header1.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
+		header1.pinnedBackgroundColor  = UIColor(white: 0.5, alpha: 1.0)
 		header1.visibleWhileShowingPlaceholder = true
 		header1.configureView          = { (reusableView, dataSource, indexPath) -> Void in
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
