@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Property updated by the collection view layout when the header is pinned to the top of the collection view.
 @property (nonatomic, readonly, getter = isPinned) BOOL pinned;
 
+/// Property updated by the collection view layout when the header is sticked to the top of the collection view.
+@property (nonatomic, readonly, getter = isSticked) BOOL sticked;
+
 /// Should this header/footer show a separator?
 @property (nonatomic) BOOL showsSeparator;
 
@@ -38,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The background color to display when the header has been pinned. A nil value indicates the header should blend with navigation bars.
 @property (nonatomic, strong) UIColor *pinnedBackgroundColor;
+
+/// The background color to display when the header has been sticked. A nil value indicates the header should blend with navigation bars.
+@property (nonatomic, strong) UIColor *stickedBackgroundColor;
 
 /// The theme this header should use to resolve any values not specified in its attributes
 @property (nonatomic, strong) AAPLTheme *theme;

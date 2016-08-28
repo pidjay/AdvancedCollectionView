@@ -31,6 +31,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
         unsigned char visibleWhileShowingPlaceholder : 1;
         unsigned char backgroundColor : 1;
         unsigned char pinnedBackgroundColor : 1;
+        unsigned char stickedBackgroundColor : 1;
         unsigned char pinnedSeparatorColor : 1;
         unsigned char separatorColor : 1;
         unsigned char selectedBackgroundColor : 1;
@@ -87,6 +88,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     item->_layoutMargins = _layoutMargins;
     item->_separatorColor = _separatorColor;
     item->_pinnedBackgroundColor = _pinnedBackgroundColor;
+    item->_stickedBackgroundColor = _stickedBackgroundColor;
     item->_pinnedSeparatorColor = _pinnedSeparatorColor;
     item->_showsSeparator = _showsSeparator;
     item->_elementKind = [_elementKind copy];
@@ -155,6 +157,11 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_SET_PROP_AND_FLAG(pinnedBackgroundColor, pinnedBackgroundColor);
 }
 
+- (void)setStickedBackgroundColor:(UIColor *)stickedBackgroundColor
+{
+    AAPL_SET_PROP_AND_FLAG(stickedBackgroundColor, stickedBackgroundColor);
+}
+
 - (void)setPinnedSeparatorColor:(UIColor *)pinnedSeparatorColor
 {
     AAPL_SET_PROP_AND_FLAG(pinnedSeparatorColor, pinnedSeparatorColor);
@@ -197,6 +204,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_COPY_PROP_FROM_TO(pinnedSeparatorColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(backgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(pinnedBackgroundColor, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(stickedBackgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(selectedBackgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(height, metrics, self);
     AAPL_COPY_PROP_FROM_TO(estimatedHeight, metrics, self);

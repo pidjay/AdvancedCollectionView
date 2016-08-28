@@ -80,6 +80,7 @@
     attributes->_pinnedSeparatorColor = _pinnedSeparatorColor;
     attributes->_separatorColor = _separatorColor;
     attributes->_pinnedBackgroundColor = _pinnedBackgroundColor;
+    attributes->_stickedBackgroundColor = _stickedBackgroundColor;
     attributes->_showsSeparator = _showsSeparator;
     return attributes;
 }

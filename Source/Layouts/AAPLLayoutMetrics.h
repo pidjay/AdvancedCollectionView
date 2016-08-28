@@ -69,6 +69,9 @@ typedef void (^AAPLSupplementaryItemConfigurationBlock)(__kindof UICollectionReu
 /// The color to use for the background when the supplementary view has been pinned. If not set, this will be inherrited from the section's backgroundColor value.
 @property (nonatomic, strong) UIColor *pinnedBackgroundColor;
 
+/// The color to use for the background when the supplementary view has been sticked. If not set, this will be inherrited from the section's backgroundColor value.
+@property (nonatomic, strong) UIColor *stickedBackgroundColor;
+
 /// The color to use when showing the bottom separator line (if shown). If not set, this will be inherited from the section.
 @property (nonatomic, strong) UIColor *separatorColor;
 

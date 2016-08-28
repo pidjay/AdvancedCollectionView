@@ -1546,7 +1546,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         AAPLCollectionViewLayoutAttributes *layoutAttributes = supplementaryItem.layoutAttributes;
         
         CGRect frame = layoutAttributes.frame;
-        layoutAttributes.stickedHeader = frame.origin.y != layoutAttributes.unpinnedY;
+        layoutAttributes.stickedHeader = frame.origin.y < layoutAttributes.unpinnedY;
         NSInteger depth = 1 + itemIndex;
         layoutAttributes.zIndex = zIndex - depth;
     }];

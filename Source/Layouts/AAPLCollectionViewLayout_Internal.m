@@ -116,6 +116,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     attributes.simulatesSelection = self.simulatesSelection;
     attributes.pinnedSeparatorColor = self.pinnedSeparatorColor ?: section.separatorColor;
     attributes.pinnedBackgroundColor = self.pinnedBackgroundColor ?: section.backgroundColor;
+    attributes.stickedBackgroundColor = self.stickedBackgroundColor ?: section.backgroundColor;
     attributes.showsSeparator = self.showsSeparator;
 
     _layoutAttributes = attributes;
