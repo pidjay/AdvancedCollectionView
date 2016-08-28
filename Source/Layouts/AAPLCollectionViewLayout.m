@@ -103,6 +103,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 @property (nonatomic) CGSize dragCellSize;
 
 @property (nonatomic, strong) NSMutableArray *pinnableItems;
+@property (nonatomic, strong) NSMutableArray *stickyItems;
 @property (nonatomic, strong) AAPLLayoutInfo *layoutInfo;
 @property (nonatomic, strong) AAPLLayoutInfo *oldLayoutInfo;
 
@@ -173,6 +174,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     _updateSectionDirections = [NSMutableDictionary dictionary];
     _pinnableItems = [NSMutableArray array];
+    _stickyItems = [NSMutableArray array];
     _shadowRegistrar = [[AAPLShadowRegistrar alloc] init];
 }
 
@@ -1428,6 +1430,21 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     }
 }
 
+- (void)resetStickySupplementaryItems:(NSArray *)supplementaryItems invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
+{
+    for (AAPLLayoutSupplementaryItem *supplementaryItem in supplementaryItems) {
+        AAPLCollectionViewLayoutAttributes *attributes = supplementaryItem.layoutAttributes;
+        CGRect frame = attributes.frame;
+        
+        if (frame.origin.y != attributes.unpinnedY)
+            [invalidationContext invalidateSupplementaryElementsOfKind:attributes.representedElementKind atIndexPaths:@[attributes.indexPath]];
+        
+        attributes.stickedHeader = NO;
+        frame.origin.y = attributes.unpinnedY;
+        attributes.frame = frame;
+    }
+}
+
 - (CGFloat)applyBottomPinningToSupplementaryItems:(NSArray *)supplementaryItems maxY:(CGFloat)maxY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
 {
     for (AAPLLayoutSupplementaryItem *supplementaryItem in [supplementaryItems reverseObjectEnumerator]) {
@@ -1446,7 +1463,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     return maxY;
 }
 
-// pin the attributes starting at minY as long a they don't cross maxY and return the new minY
+// Pin the attributes starting at minY as long as they don't cross maxY and return the new minY
 - (CGFloat)applyTopPinningToSupplementaryItems:(NSArray *)supplementaryItems minY:(CGFloat)originalMinY maxY:(CGFloat)maxY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
 {
     __block CGFloat minY = originalMinY;
@@ -1498,6 +1515,43 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     }];
 }
 
+// Stick the attributes from minY
+- (void)applyStickingToSupplementaryItems:(NSArray *)supplementaryItems minY:(CGFloat)originalMinY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
+{
+    __block CGFloat minY = originalMinY;
+    
+    [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
+        
+        // Record this supplementary item so we can reset it later
+        [self.stickyItems addObject:supplementaryItem];
+        
+        AAPLCollectionViewLayoutAttributes *layoutAttributes = supplementaryItem.layoutAttributes;
+        CGRect frame = layoutAttributes.frame;
+        
+        if (frame.origin.y > minY) {
+            frame.origin.y = minY;
+            
+            layoutAttributes.frame = frame;
+            
+            [invalidationContext invalidateSupplementaryElementsOfKind:layoutAttributes.representedElementKind atIndexPaths:@[layoutAttributes.indexPath]];
+        }
+        
+        minY = CGRectGetMaxY(frame); // we have a new sticky offset
+    }];
+}
+
+- (void)finalizeStickingForSupplementaryItems:(NSArray *)supplementaryItems zIndex:(NSInteger)zIndex
+{
+    [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
+        AAPLCollectionViewLayoutAttributes *layoutAttributes = supplementaryItem.layoutAttributes;
+        
+        CGRect frame = layoutAttributes.frame;
+        layoutAttributes.stickedHeader = frame.origin.y != layoutAttributes.unpinnedY;
+        NSInteger depth = 1 + itemIndex;
+        layoutAttributes.zIndex = zIndex - depth;
+    }];
+}
+
 - (AAPLLayoutSection *)firstSectionOverlappingYOffset:(CGFloat)yOffset
 {
     __block AAPLLayoutSection *result = nil;
@@ -1529,9 +1583,18 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
     [self resetPinnableSupplementaryItems:self.pinnableItems invalidationContext:invalidationContext];
     [self.pinnableItems removeAllObjects];
+    
+    [self resetStickySupplementaryItems:self.stickyItems invalidationContext:invalidationContext];
+    [self.stickyItems removeAllObjects];
 
-    // Pin the headers as appropriate
+    
     AAPLLayoutSection *section = [self sectionInfoForSectionAtIndex:AAPLGlobalSectionIndex];
+    // Stick the headers as appropriate
+    if (section.stickyHeaders) {
+        [self applyStickingToSupplementaryItems:section.stickyHeaders minY:pinnableY invalidationContext:invalidationContext];
+        [self finalizeStickingForSupplementaryItems:section.stickyHeaders zIndex:HEADER_ZINDEX];
+    }
+    // Pin the headers as appropriate
     if (section.pinnableHeaders) {
         // Global header that are pinned should never be pushed
         CGFloat maxY = CGFLOAT_MAX;

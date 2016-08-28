@@ -38,8 +38,12 @@ typedef void (^AAPLSupplementaryItemConfigurationBlock)(__kindof UICollectionReu
 /// Should this supplementary view be displayed while the placeholder is visible?
 @property (nonatomic, getter = isVisibleWhileShowingPlaceholder) BOOL visibleWhileShowingPlaceholder;
 
-/// Should this supplementary view be pinned to the top of the view when scrolling? Only valid for header supplementary views.
+/// Should this supplementary view be pinned to the top of the view when scrolling down? Only valid for header supplementary views.
 @property (nonatomic) BOOL shouldPin;
+
+/// Should this supplementary view stick to the top of the view when scrolling up? Only valid for global header supplementary views.
+/// Note: Those headers should be positioned first if you have more than one header.
+@property (nonatomic) BOOL shouldStick;
 
 /// The height of the supplementary view. Default value is AAPLCollectionViewAutomaticHeight. Setting this property to a concrete value will prevent the supplementary view from being automatically sized.
 @property (nonatomic) CGFloat height;

@@ -18,10 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class AAPLTheme;
 
 @interface AAPLCollectionViewLayoutAttributes ()
+
 /// What is the column index for this item?
 @property (nonatomic) NSInteger columnIndex;
+
 /// Is the layout in edit mode
 @property (nonatomic, getter = isEditing) BOOL editing;
+
 /// Is the cell movable according to the data source. Only YES when editing
 @property (nonatomic, getter = isMovable) BOOL movable;
 

@@ -27,6 +27,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
         unsigned char estimatedHeight : 1;
         unsigned char hidden : 1;
         unsigned char shouldPin : 1;
+        unsigned char shouldStick : 1;
         unsigned char visibleWhileShowingPlaceholder : 1;
         unsigned char backgroundColor : 1;
         unsigned char pinnedBackgroundColor : 1;
@@ -79,6 +80,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     item->_estimatedHeight = _estimatedHeight;
     item->_hidden = _hidden;
     item->_shouldPin = _shouldPin;
+    item->_shouldStick = _shouldStick;
     item->_visibleWhileShowingPlaceholder = _visibleWhileShowingPlaceholder;
     item->_backgroundColor = _backgroundColor;
     item->_selectedBackgroundColor = _selectedBackgroundColor;
@@ -126,6 +128,11 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
 - (void)setShouldPin:(BOOL)shouldPin
 {
     AAPL_SET_PROP_AND_FLAG(shouldPin, shouldPin);
+}
+
+- (void)setShouldStick:(BOOL)shouldStick
+{
+    AAPL_SET_PROP_AND_FLAG(shouldStick, shouldStick)
 }
 
 - (void)setVisibleWhileShowingPlaceholder:(BOOL)visibleWhileShowingPlaceholder
@@ -195,6 +202,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_COPY_PROP_FROM_TO(estimatedHeight, metrics, self);
     AAPL_COPY_PROP_FROM_TO(hidden, metrics, self);
     AAPL_COPY_PROP_FROM_TO(shouldPin, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(shouldStick, metrics, self);
     AAPL_COPY_PROP_FROM_TO(visibleWhileShowingPlaceholder, metrics, self);
     AAPL_COPY_PROP_FROM_TO(showsSeparator, metrics, self);
 
