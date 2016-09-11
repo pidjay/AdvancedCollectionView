@@ -985,7 +985,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
 
     __block NSMutableArray *pinnableHeaders = [NSMutableArray array];
     __block NSMutableArray *stickyHeaders = self.globalSection ? [NSMutableArray array] : nil;
-    __block NSMutableArray *nonPinnableHeaders = self.globalSection ? [NSMutableArray array] : nil;
+    __block NSMutableArray *nonPinnableHeaders = self.globalSection ? [NSMutableArray array] : nil; // used to calculate the height of non pinning headers in the global section ONLY
 
     void (^layoutSupplementaryView)(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) = ^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
         // skip supplementary item if there are no items and it isn't visible while showing the placeholder
@@ -1028,9 +1028,6 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
             else {
                 if (supplementaryItem.shouldPin) {
                     [pinnableHeaders addObject:supplementaryItem];
-                }
-                else if (nonPinnableHeaders) {
-                    [nonPinnableHeaders addObject:supplementaryItem];
                 }
             }
         }
