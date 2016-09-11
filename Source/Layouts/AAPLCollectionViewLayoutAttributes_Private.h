@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// The color for a header/footer that's been pinned
 @property (nonatomic, strong) UIColor *pinnedBackgroundColor;
 
-/// The color for a header/footer that's been sticked
+/// The color for a global header that's been sticked
 @property (nonatomic, strong) UIColor *stickedBackgroundColor;
 
 /// The color for the header/footer separator.
