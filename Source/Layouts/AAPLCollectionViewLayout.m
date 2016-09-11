@@ -1370,6 +1370,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     CGFloat start = 0;
 
     [self.pinnableItems removeAllObjects];
+    [self.stickyItems removeAllObjects];
 
     AAPLDataSource *dataSource = (AAPLDataSource *)collectionView.dataSource;
     if (![dataSource isKindOfClass:[AAPLDataSource class]])
