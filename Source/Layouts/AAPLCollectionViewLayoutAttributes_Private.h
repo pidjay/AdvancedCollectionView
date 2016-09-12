@@ -18,21 +18,30 @@ NS_ASSUME_NONNULL_BEGIN
 @class AAPLTheme;
 
 @interface AAPLCollectionViewLayoutAttributes ()
+
 /// What is the column index for this item?
 @property (nonatomic) NSInteger columnIndex;
+
 /// Is the layout in edit mode
 @property (nonatomic, getter = isEditing) BOOL editing;
+
 /// Is the cell movable according to the data source. Only YES when editing
 @property (nonatomic, getter = isMovable) BOOL movable;
 
 /// The color for a header/footer that's been pinned
 @property (nonatomic, strong) UIColor *pinnedBackgroundColor;
 
+/// The color for a global header that's been sticked
+@property (nonatomic, strong) UIColor *stickedBackgroundColor;
+
 /// The color for the header/footer separator.
 @property (nonatomic, strong) UIColor *separatorColor;
 
 /// The color for a separator of a header/footer that's been pinned
 @property (nonatomic, strong) UIColor *pinnedSeparatorColor;
+
+/// The color for a separator of a global header that's been sticked
+@property (nonatomic, strong) UIColor *stickedSeparatorColor;
 
 /// Should the header/footer show its separator line
 @property (nonatomic) BOOL showsSeparator;

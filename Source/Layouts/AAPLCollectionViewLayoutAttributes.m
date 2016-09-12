@@ -17,6 +17,7 @@
 
     result = prime * result + [super hash];
     result = prime * result + _pinnedHeader;
+    result = prime * result + _stickedHeader;
     result = prime * result + _columnIndex;
     result = prime * result + [_backgroundColor hash];
     result = prime * result + [_selectedBackgroundColor hash];
@@ -65,6 +66,7 @@
     AAPLCollectionViewLayoutAttributes *attributes = [super copyWithZone:zone];
     attributes->_backgroundColor = _backgroundColor;
     attributes->_pinnedHeader = _pinnedHeader;
+    attributes->_stickedHeader = _stickedHeader;
     attributes->_columnIndex = _columnIndex;
     attributes->_backgroundColor = _backgroundColor;
     attributes->_selectedBackgroundColor = _selectedBackgroundColor;
@@ -76,8 +78,10 @@
     attributes->_theme = _theme;
     attributes->_simulatesSelection = _simulatesSelection;
     attributes->_pinnedSeparatorColor = _pinnedSeparatorColor;
+    attributes->_stickedSeparatorColor = _stickedSeparatorColor;
     attributes->_separatorColor = _separatorColor;
     attributes->_pinnedBackgroundColor = _pinnedBackgroundColor;
+    attributes->_stickedBackgroundColor = _stickedBackgroundColor;
     attributes->_showsSeparator = _showsSeparator;
     return attributes;
 }

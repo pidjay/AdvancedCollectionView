@@ -22,6 +22,7 @@ extern NSString * const AAPLCollectionElementKindGlobalHeaderBackground;
 @class AAPLLayoutCell;
 @class AAPLLayoutSupplementaryItem;
 @class AAPLLayoutPlaceholder;
+@class AAPLLayoutSection;
 
 @interface AAPLCollectionViewLayout ()
 
@@ -48,5 +49,7 @@ extern NSString * const AAPLCollectionElementKindGlobalHeaderBackground;
 - (CGSize)measuredSizeForCell:(AAPLLayoutCell *)cell;
 - (CGSize)measuredSizeForPlaceholder:(AAPLLayoutPlaceholder *)placeholderInfo;
 #endif
+
+- (AAPLLayoutSection *)sectionInfoForSectionAtIndex:(NSInteger)sectionIndex;
 
 @end
