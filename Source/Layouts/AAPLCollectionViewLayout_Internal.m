@@ -114,6 +114,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     attributes.shouldCalculateFittingSize = self.hasEstimatedHeight;
     attributes.theme = section.theme;
     attributes.simulatesSelection = self.simulatesSelection;
+    attributes.separatorColor = self.separatorColor ?: section.separatorColor;
     attributes.pinnedSeparatorColor = self.pinnedSeparatorColor ?: section.separatorColor;
     attributes.stickedSeparatorColor = self.stickedSeparatorColor ?: section.separatorColor;
     attributes.pinnedBackgroundColor = self.pinnedBackgroundColor ?: section.backgroundColor;
