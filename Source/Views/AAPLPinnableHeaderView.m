@@ -66,6 +66,7 @@
     _theme = theme;
     _separatorColor = theme.separatorColor;
     _pinnedSeparatorColor = theme.separatorColor;
+    _stickedSeparatorColor = theme.separatorColor;
 }
 
 - (UIEdgeInsets)defaultLayoutMargins
@@ -99,6 +100,14 @@
         _borderView.backgroundColor = pinnedSeparatorColor;
 }
 
+- (void)setStickedSeparatorColor:(UIColor *)stickedSeparatorColor
+{
+    _stickedSeparatorColor = stickedSeparatorColor;
+    if (self.sticked) {
+        _borderView.backgroundColor = stickedSeparatorColor;
+    }
+}
+
 - (UIColor *)currentBackgroundColor
 {
     if (self.highlighted)
@@ -122,14 +131,12 @@
         }
         else if (self.sticked) {
             self.backgroundColor = self.stickedBackgroundColor;
+            self.borderView.backgroundColor = self.stickedSeparatorColor;
         }
         else {
             self.backgroundColor = self.normalBackgroundColor;
             self.borderView.backgroundColor = self.separatorColor;
         }
-        
-        UIColor *borderColor = _pinned ? self.pinnedSeparatorColor : self.separatorColor;
-        self.borderView.backgroundColor = borderColor;
     }];
 }
 
@@ -149,6 +156,7 @@
 
     self.separatorColor = layoutAttributes.separatorColor;
     self.pinnedSeparatorColor = layoutAttributes.pinnedSeparatorColor;
+    self.stickedSeparatorColor = layoutAttributes.stickedSeparatorColor;
     self.showsSeparator = layoutAttributes.showsSeparator;
     self.normalBackgroundColor = layoutAttributes.backgroundColor;
     self.selectedBackgroundColor = layoutAttributes.selectedBackgroundColor;

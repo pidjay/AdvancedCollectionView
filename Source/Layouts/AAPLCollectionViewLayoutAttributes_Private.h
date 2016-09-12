@@ -40,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// The color for a separator of a header/footer that's been pinned
 @property (nonatomic, strong) UIColor *pinnedSeparatorColor;
 
+/// The color for a separator of a global header that's been sticked
+@property (nonatomic, strong) UIColor *stickedSeparatorColor;
+
 /// Should the header/footer show its separator line
 @property (nonatomic) BOOL showsSeparator;
 

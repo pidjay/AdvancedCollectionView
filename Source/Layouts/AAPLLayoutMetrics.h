@@ -78,6 +78,9 @@ typedef void (^AAPLSupplementaryItemConfigurationBlock)(__kindof UICollectionReu
 /// The color to use when showing the bottom separator line if the supplementary view has been pinned. If not set, this will be inherited from the section's separatorColor value.
 @property (nonatomic, strong) UIColor *pinnedSeparatorColor;
 
+/// The color to use when showing the bottom separator line if the supplementary view has been sticked. If not set, this will be inherited from the section's separatorColor value.
+@property (nonatomic, strong) UIColor *stickedSeparatorColor;
+
 /// Should the header/footer show a separator line? The default value is NO. When shown, the separator will be shown using the separator color.
 @property (nonatomic) BOOL showsSeparator;
 

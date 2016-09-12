@@ -78,6 +78,7 @@
     attributes->_theme = _theme;
     attributes->_simulatesSelection = _simulatesSelection;
     attributes->_pinnedSeparatorColor = _pinnedSeparatorColor;
+    attributes->_stickedSeparatorColor = _stickedSeparatorColor;
     attributes->_separatorColor = _separatorColor;
     attributes->_pinnedBackgroundColor = _pinnedBackgroundColor;
     attributes->_stickedBackgroundColor = _stickedBackgroundColor;

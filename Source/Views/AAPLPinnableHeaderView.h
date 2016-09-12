@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// The color of the border to add to the header when it is pinned. When this property is nil, the separator will not change color when pinned.
 @property (nonatomic, strong) UIColor *pinnedSeparatorColor;
 
+/// The color of the border to add to the header when it is sticked. When this property is nil, the separator will not change color when sticked.
+@property (nonatomic, strong) UIColor *stickedSeparatorColor;
+
 /// The background color to display when the header has been pinned. A nil value indicates the header should blend with navigation bars.
 @property (nonatomic, strong) UIColor *pinnedBackgroundColor;
 
