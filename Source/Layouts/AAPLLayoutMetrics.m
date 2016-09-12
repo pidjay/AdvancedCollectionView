@@ -27,10 +27,13 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
         unsigned char estimatedHeight : 1;
         unsigned char hidden : 1;
         unsigned char shouldPin : 1;
+        unsigned char shouldStick : 1;
         unsigned char visibleWhileShowingPlaceholder : 1;
         unsigned char backgroundColor : 1;
         unsigned char pinnedBackgroundColor : 1;
+        unsigned char stickedBackgroundColor : 1;
         unsigned char pinnedSeparatorColor : 1;
+        unsigned char stickedSeparatorColor : 1;
         unsigned char separatorColor : 1;
         unsigned char selectedBackgroundColor : 1;
         unsigned char layoutMargins : 1;
@@ -79,13 +82,16 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     item->_estimatedHeight = _estimatedHeight;
     item->_hidden = _hidden;
     item->_shouldPin = _shouldPin;
+    item->_shouldStick = _shouldStick;
     item->_visibleWhileShowingPlaceholder = _visibleWhileShowingPlaceholder;
     item->_backgroundColor = _backgroundColor;
     item->_selectedBackgroundColor = _selectedBackgroundColor;
     item->_layoutMargins = _layoutMargins;
     item->_separatorColor = _separatorColor;
     item->_pinnedBackgroundColor = _pinnedBackgroundColor;
+    item->_stickedBackgroundColor = _stickedBackgroundColor;
     item->_pinnedSeparatorColor = _pinnedSeparatorColor;
+    item->_stickedSeparatorColor = _stickedSeparatorColor;
     item->_showsSeparator = _showsSeparator;
     item->_elementKind = [_elementKind copy];
     return item;
@@ -128,6 +134,11 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_SET_PROP_AND_FLAG(shouldPin, shouldPin);
 }
 
+- (void)setShouldStick:(BOOL)shouldStick
+{
+    AAPL_SET_PROP_AND_FLAG(shouldStick, shouldStick)
+}
+
 - (void)setVisibleWhileShowingPlaceholder:(BOOL)visibleWhileShowingPlaceholder
 {
     AAPL_SET_PROP_AND_FLAG(visibleWhileShowingPlaceholder, visibleWhileShowingPlaceholder);
@@ -148,9 +159,19 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_SET_PROP_AND_FLAG(pinnedBackgroundColor, pinnedBackgroundColor);
 }
 
+- (void)setStickedBackgroundColor:(UIColor *)stickedBackgroundColor
+{
+    AAPL_SET_PROP_AND_FLAG(stickedBackgroundColor, stickedBackgroundColor);
+}
+
 - (void)setPinnedSeparatorColor:(UIColor *)pinnedSeparatorColor
 {
     AAPL_SET_PROP_AND_FLAG(pinnedSeparatorColor, pinnedSeparatorColor);
+}
+
+- (void)setStickedSeparatorColor:(UIColor *)stickedSeparatorColor
+{
+    AAPL_SET_PROP_AND_FLAG(stickedSeparatorColor, stickedSeparatorColor);
 }
 
 - (void)setSeparatorColor:(UIColor *)separatorColor
@@ -188,13 +209,16 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_COPY_PROP_FROM_TO(layoutMargins, metrics, self);
     AAPL_COPY_PROP_FROM_TO(separatorColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(pinnedSeparatorColor, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(stickedSeparatorColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(backgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(pinnedBackgroundColor, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(stickedBackgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(selectedBackgroundColor, metrics, self);
     AAPL_COPY_PROP_FROM_TO(height, metrics, self);
     AAPL_COPY_PROP_FROM_TO(estimatedHeight, metrics, self);
     AAPL_COPY_PROP_FROM_TO(hidden, metrics, self);
     AAPL_COPY_PROP_FROM_TO(shouldPin, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(shouldStick, metrics, self);
     AAPL_COPY_PROP_FROM_TO(visibleWhileShowingPlaceholder, metrics, self);
     AAPL_COPY_PROP_FROM_TO(showsSeparator, metrics, self);
 

@@ -13,6 +13,7 @@
 
 @interface AAPLPinnableHeaderView ()
 @property (nonatomic, getter = isPinned, readwrite) BOOL pinned;
+@property (nonatomic, getter = isSticked, readwrite) BOOL sticked;
 @property (nonatomic, strong) AAPLHairlineView *borderView;
 /// This is a non-active property for background color, because the background property actually IS the current background color
 @property (nonatomic, strong) UIColor *normalBackgroundColor;
@@ -53,7 +54,9 @@
     [super prepareForReuse];
     self.layoutMargins = self.defaultLayoutMargins;
     _pinned = NO;
+    _sticked = NO;
     _pinnedBackgroundColor = nil;
+    _stickedBackgroundColor = nil;
 }
 
 - (void)setTheme:(AAPLTheme *)theme
@@ -63,6 +66,7 @@
     _theme = theme;
     _separatorColor = theme.separatorColor;
     _pinnedSeparatorColor = theme.separatorColor;
+    _stickedSeparatorColor = theme.separatorColor;
 }
 
 - (UIEdgeInsets)defaultLayoutMargins
@@ -96,29 +100,43 @@
         _borderView.backgroundColor = pinnedSeparatorColor;
 }
 
+- (void)setStickedSeparatorColor:(UIColor *)stickedSeparatorColor
+{
+    _stickedSeparatorColor = stickedSeparatorColor;
+    if (self.sticked) {
+        _borderView.backgroundColor = stickedSeparatorColor;
+    }
+}
+
 - (UIColor *)currentBackgroundColor
 {
     if (self.highlighted)
         return self.selectedBackgroundColor;
     if (self.pinned)
         return self.pinnedBackgroundColor;
+    if (self.sticked) {
+        return self.stickedBackgroundColor;
+    }
     return self.normalBackgroundColor;
 }
 
-- (void)setPinned:(BOOL)pinned
+- (void)updateBackgroundAndSeparatorColorsAnimated:(BOOL)animated
 {
-    CGFloat duration = (_pinned == pinned ? 0 : 0.25);
-
+    CGFloat duration = (animated ? 0.25 : 0);
+    
     [UIView animateWithDuration:duration animations:^{
-        if (pinned)
+        if (self.pinned) {
             self.backgroundColor = self.pinnedBackgroundColor;
-        else
+            self.borderView.backgroundColor = self.pinnedSeparatorColor;
+        }
+        else if (self.sticked) {
+            self.backgroundColor = self.stickedBackgroundColor;
+            self.borderView.backgroundColor = self.stickedSeparatorColor;
+        }
+        else {
             self.backgroundColor = self.normalBackgroundColor;
-
-        _pinned = pinned;
-
-        UIColor *borderColor = self.pinnedSeparatorColor ?: self.separatorColor;
-        self.borderView.backgroundColor = borderColor;
+            self.borderView.backgroundColor = self.separatorColor;
+        }
     }];
 }
 
@@ -138,13 +156,22 @@
 
     self.separatorColor = layoutAttributes.separatorColor;
     self.pinnedSeparatorColor = layoutAttributes.pinnedSeparatorColor;
+    self.stickedSeparatorColor = layoutAttributes.stickedSeparatorColor;
     self.showsSeparator = layoutAttributes.showsSeparator;
     self.normalBackgroundColor = layoutAttributes.backgroundColor;
     self.selectedBackgroundColor = layoutAttributes.selectedBackgroundColor;
     self.pinnedBackgroundColor = layoutAttributes.pinnedBackgroundColor;
+    self.stickedBackgroundColor = layoutAttributes.stickedBackgroundColor;
 
     self.simulatesSelection = layoutAttributes.simulatesSelection;
+    
+    // Animate the color changes if the pinned or sticked flags changed
+    BOOL animated = (_pinned != layoutAttributes.pinnedHeader || _sticked != layoutAttributes.stickedHeader);
+    
     self.pinned = layoutAttributes.pinnedHeader;
+    self.sticked = layoutAttributes.stickedHeader;
+    
+    [self updateBackgroundAndSeparatorColorsAnimated:animated];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

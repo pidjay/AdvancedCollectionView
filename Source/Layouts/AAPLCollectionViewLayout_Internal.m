@@ -105,6 +105,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     attributes.unpinnedY = self.frame.origin.y;
     attributes.zIndex = HEADER_ZINDEX;
     attributes.pinnedHeader = NO;
+    attributes.stickedHeader = NO;
     attributes.backgroundColor = self.backgroundColor ?: section.backgroundColor;
     attributes.selectedBackgroundColor = self.selectedBackgroundColor;
     attributes.layoutMargins = self.layoutMargins;
@@ -114,7 +115,9 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     attributes.theme = section.theme;
     attributes.simulatesSelection = self.simulatesSelection;
     attributes.pinnedSeparatorColor = self.pinnedSeparatorColor ?: section.separatorColor;
+    attributes.stickedSeparatorColor = self.stickedSeparatorColor ?: section.separatorColor;
     attributes.pinnedBackgroundColor = self.pinnedBackgroundColor ?: section.backgroundColor;
+    attributes.stickedBackgroundColor = self.stickedBackgroundColor ?: section.backgroundColor;
     attributes.showsSeparator = self.showsSeparator;
 
     _layoutAttributes = attributes;
@@ -205,6 +208,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     attributes.unpinnedY = self.frame.origin.y;
     attributes.zIndex = HEADER_ZINDEX;
     attributes.pinnedHeader = NO;
+    attributes.stickedHeader = NO;
     attributes.backgroundColor = self.backgroundColor;
     attributes.hidden = NO;
     attributes.shouldCalculateFittingSize = self.hasEstimatedHeight;
@@ -455,6 +459,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     [_rows removeAllObjects];
     [_items removeAllObjects];
     _pinnableHeaders = nil;
+    _stickyHeaders = nil;
     _nonPinnableHeaders = nil;
     _backgroundAttribute = nil;
     _headers = nil;
@@ -525,6 +530,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     backgroundAttribute.unpinnedY = CGRectGetMinY(self.frame);
     backgroundAttribute.zIndex = DEFAULT_ZINDEX;
     backgroundAttribute.pinnedHeader = NO;
+    backgroundAttribute.stickedHeader = NO;
     backgroundAttribute.backgroundColor = self.backgroundColor;
     backgroundAttribute.hidden = NO;
 
@@ -979,7 +985,8 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     __block CGFloat originY = start;
 
     __block NSMutableArray *pinnableHeaders = [NSMutableArray array];
-    __block NSMutableArray *nonPinnableHeaders = self.globalSection ? [NSMutableArray array] : nil;
+    __block NSMutableArray *stickyHeaders = self.globalSection ? [NSMutableArray array] : nil;
+    __block NSMutableArray *nonPinnableHeaders = self.globalSection ? [NSMutableArray array] : nil; // used to calculate the height of non pinning headers in the global section ONLY
 
     void (^layoutSupplementaryView)(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) = ^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
         // skip supplementary item if there are no items and it isn't visible while showing the placeholder
@@ -1005,10 +1012,25 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
         originY += height;
 
         if ([supplementaryItem.elementKind isEqualToString:UICollectionElementKindSectionHeader]) {
-            if (supplementaryItem.shouldPin)
-                [pinnableHeaders addObject:supplementaryItem];
-            else if (nonPinnableHeaders)
-                [nonPinnableHeaders addObject:supplementaryItem];
+            
+            if (self.isGlobalSection) {
+                if (!supplementaryItem.shouldPin && !supplementaryItem.shouldStick) {
+                    [nonPinnableHeaders addObject:supplementaryItem];
+                }
+                else {
+                    if (supplementaryItem.shouldPin) {
+                        [pinnableHeaders addObject:supplementaryItem];
+                    }
+                    if (supplementaryItem.shouldStick) {
+                        [stickyHeaders addObject:supplementaryItem];
+                    }
+                }
+            }
+            else {
+                if (supplementaryItem.shouldPin) {
+                    [pinnableHeaders addObject:supplementaryItem];
+                }
+            }
         }
 
         [invalidationContext invalidateSupplementaryElementsOfKind:supplementaryItem.elementKind atIndexPaths:@[supplementaryItem.indexPath]];
@@ -1017,6 +1039,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     // Lay out headers
     [self.headers enumerateObjectsUsingBlock:layoutSupplementaryView];
     _pinnableHeaders = pinnableHeaders;
+    _stickyHeaders = stickyHeaders;
     _nonPinnableHeaders = nonPinnableHeaders;
 
     // Next lay out all the items in rows

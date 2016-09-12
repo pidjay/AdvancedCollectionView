@@ -12,6 +12,8 @@
 
 #import "AAPLBasicDataSource.h"
 #import "AAPLDataSource_Private.h"
+#import "AAPLCollectionViewLayout_Private.h"
+#import "AAPLCollectionViewLayout_Internal.h"
 
 @interface BasicDataSourceTests : XCTestCase
 @end
@@ -80,6 +82,68 @@
     sectionHeader.estimatedHeight = 100;
 
     XCTAssertEqual(2, [dataSource numberOfHeadersInSectionAtIndex:0 includeChildDataSouces:YES]);
+}
+
+- (void)testStickyHeaderInDataSourceWithGlobalHeader
+{
+    AAPLBasicDataSource *dataSource = [AAPLBasicDataSource new];
+    
+    AAPLSupplementaryItem *stickyHeader = [dataSource newHeaderForKey:@"FOO"];
+    stickyHeader.height = 100;
+    stickyHeader.shouldStick = YES;
+    stickyHeader.visibleWhileShowingPlaceholder = YES;
+    
+    AAPLCollectionViewLayout *layout = [[AAPLCollectionViewLayout alloc] init];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 320.0) collectionViewLayout:layout];
+    collectionView.dataSource = dataSource;
+    collectionView.contentOffset = CGPointMake(0.0, -60.0); // pulling the collection view down
+    
+    [layout prepareLayout];
+    
+    AAPLLayoutSection *section = [layout sectionInfoForSectionAtIndex:AAPLGlobalSectionIndex];
+    
+    XCTAssertNotNil(section);
+    XCTAssertEqual(1, section.headers.count);
+    XCTAssertEqual(1, section.stickyHeaders.count);
+    XCTAssertEqual(0, section.pinnableHeaders.count);
+    
+    AAPLLayoutSupplementaryItem *header = section.stickyHeaders.firstObject;
+    
+    XCTAssertNotNil(header);
+    XCTAssertTrue(header.layoutAttributes.stickedHeader, @"Sticky header should stick in a section.");
+    XCTAssertEqual(collectionView.contentOffset.y, header.layoutAttributes.frame.origin.y);
+}
+
+- (void)testStickyHeaderInDataSourceWithSectionHeader
+{
+    AAPLBasicDataSource *dataSource = [AAPLBasicDataSource new];
+    
+    AAPLSupplementaryItem *stickyHeader = [dataSource newSectionHeader];
+    stickyHeader.height = 100;
+    stickyHeader.shouldStick = YES;
+    stickyHeader.visibleWhileShowingPlaceholder = YES;
+    
+    AAPLCollectionViewLayout *layout = [[AAPLCollectionViewLayout alloc] init];
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 320.0) collectionViewLayout:layout];
+    collectionView.dataSource = dataSource;
+    collectionView.contentOffset = CGPointMake(0.0, -60.0); // pulling the collection view down
+    
+    [layout prepareLayout];
+    
+    AAPLLayoutSection *section = [layout sectionInfoForSectionAtIndex:0];
+    
+    XCTAssertNotNil(section);
+    XCTAssertEqual(1, section.headers.count);
+    XCTAssertEqual(0, section.stickyHeaders.count);
+    XCTAssertEqual(0, section.pinnableHeaders.count);
+    
+    AAPLLayoutSupplementaryItem *header = section.headers.firstObject;
+    
+    XCTAssertNotNil(header);
+    XCTAssertFalse(header.layoutAttributes.stickedHeader, @"Sticky header should not stick in a section.");
+    XCTAssertEqual(header.layoutAttributes.frame.origin.y, 0);
 }
 
 @end

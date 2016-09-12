@@ -15,14 +15,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Custom Layout Attributes for the Layout.
 @interface AAPLCollectionViewLayoutAttributes : UICollectionViewLayoutAttributes
+
 /// If this is a header, is it pinned to the top of the collection view?
 @property (nonatomic, getter = isPinnedHeader) BOOL pinnedHeader;
+
+/// If this is a header, will it stick to the top of the collection view?
+@property (nonatomic, getter = isStickedHeader) BOOL stickedHeader;
+
 /// The background color for the view
 @property (nonatomic, strong) UIColor *backgroundColor;
+
 /// The background color when selected
 @property (nonatomic, strong) UIColor *selectedBackgroundColor;
+
 /// Layout margins passed to cells and supplementary views
 @property (nonatomic) UIEdgeInsets layoutMargins;
+
 @end
 
 

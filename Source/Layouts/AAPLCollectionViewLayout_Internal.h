@@ -128,6 +128,7 @@
 @property (nonatomic, strong) AAPLLayoutPlaceholder *placeholderInfo;
 
 @property (nonatomic, readonly) NSArray<AAPLLayoutSupplementaryItem *> *pinnableHeaders;
+@property (nonatomic, readonly) NSArray<AAPLLayoutSupplementaryItem *> *stickyHeaders;
 @property (nonatomic, readonly) NSArray<AAPLLayoutSupplementaryItem *> *nonPinnableHeaders;
 
 /// The height of the non-pinning headers

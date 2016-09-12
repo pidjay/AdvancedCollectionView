@@ -15,7 +15,7 @@ AdvancedCollectionView is a set of classes to help you handle the power of the c
 - [x] Segmented data source
 - [x] Selectively animate items on data source update
 - [x] Pinnable header
-- [ ] Sticky header
+- [x] Sticky header
 - [ ] Stretchable header
 - [ ] Row & line spacing
 - [ ] Section background color
