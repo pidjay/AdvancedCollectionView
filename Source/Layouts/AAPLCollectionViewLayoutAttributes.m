@@ -18,6 +18,8 @@
     result = prime * result + [super hash];
     result = prime * result + _pinnedHeader;
     result = prime * result + _stickedHeader;
+    result = prime * result + _stretchedHeader;
+    result = prime * result + (NSUInteger)_unstretchedHeight;
     result = prime * result + _columnIndex;
     result = prime * result + [_backgroundColor hash];
     result = prime * result + [_selectedBackgroundColor hash];
@@ -45,6 +47,14 @@
 
     if (_pinnedHeader != other->_pinnedHeader || _columnIndex != other->_columnIndex)
         return NO;
+    
+    if (_stickedHeader != other->_stickedHeader) {
+        return NO;
+    }
+    
+    if (_stretchedHeader != other->_stretchedHeader || _unstretchedHeight != other->_unstretchedHeight) {
+        return NO;
+    }
 
     if (_backgroundColor != other->_backgroundColor && ![_backgroundColor isEqual:other->_backgroundColor])
         return NO;
@@ -67,6 +77,7 @@
     attributes->_backgroundColor = _backgroundColor;
     attributes->_pinnedHeader = _pinnedHeader;
     attributes->_stickedHeader = _stickedHeader;
+    attributes->_stretchedHeader = _stretchedHeader;
     attributes->_columnIndex = _columnIndex;
     attributes->_backgroundColor = _backgroundColor;
     attributes->_selectedBackgroundColor = _selectedBackgroundColor;
@@ -74,6 +85,7 @@
     attributes->_editing = _editing;
     attributes->_movable = _movable;
     attributes->_unpinnedY = _unpinnedY;
+    attributes->_unstretchedHeight = _unstretchedHeight;
     attributes->_shouldCalculateFittingSize = _shouldCalculateFittingSize;
     attributes->_theme = _theme;
     attributes->_simulatesSelection = _simulatesSelection;

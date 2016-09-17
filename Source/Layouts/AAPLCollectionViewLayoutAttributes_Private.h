@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// Y offset when not pinned
 @property (nonatomic) CGFloat unpinnedY;
 
+/// Height when not stretched
+@property (nonatomic) CGFloat unstretchedHeight;
+
 /// The theme we're passing to the cell or supplementary view
 @property (nonatomic, strong) AAPLTheme *theme;
 
