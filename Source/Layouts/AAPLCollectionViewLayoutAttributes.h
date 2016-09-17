@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// If this is a header, is it pinned to the top of the collection view?
 @property (nonatomic, getter = isPinnedHeader) BOOL pinnedHeader;
 
-/// If this is a header, will it stick to the top of the collection view?
+/// If this is a header, is it sticked to the top of the collection view?
 @property (nonatomic, getter = isStickedHeader) BOOL stickedHeader;
 
 /// If this is a header, is it stretched?
