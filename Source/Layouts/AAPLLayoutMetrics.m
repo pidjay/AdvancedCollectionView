@@ -138,6 +138,10 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
 
 - (void)setShouldStick:(BOOL)shouldStick
 {
+    // Force headers that don't stick to also not be stretchable
+    if (!shouldStick) {
+        AAPL_SET_PROP_AND_FLAG(shouldStretch, NO);
+    }
     AAPL_SET_PROP_AND_FLAG(shouldStick, shouldStick);
 }
 
