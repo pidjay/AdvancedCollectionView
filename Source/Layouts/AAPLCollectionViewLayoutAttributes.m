@@ -48,6 +48,10 @@
     if (_pinnedHeader != other->_pinnedHeader || _columnIndex != other->_columnIndex)
         return NO;
     
+    if (_stickedHeader != other->_stickedHeader) {
+        return NO;
+    }
+    
     if (_stretchedHeader != other->_stretchedHeader || _unstretchedHeight != other->_unstretchedHeight) {
         return NO;
     }
