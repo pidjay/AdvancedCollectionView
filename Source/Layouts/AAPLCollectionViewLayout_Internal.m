@@ -103,6 +103,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
 
     attributes.frame = self.frame;
     attributes.unpinnedY = self.frame.origin.y;
+    attributes.unstretchedHeight = self.frame.size.height;
     attributes.zIndex = HEADER_ZINDEX;
     attributes.pinnedHeader = NO;
     attributes.stickedHeader = NO;
@@ -207,6 +208,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
 
     attributes.frame = self.frame;
     attributes.unpinnedY = self.frame.origin.y;
+    attributes.unstretchedHeight = self.frame.size.height;
     attributes.zIndex = HEADER_ZINDEX;
     attributes.pinnedHeader = NO;
     attributes.stickedHeader = NO;
@@ -529,6 +531,7 @@ static void AAPLInvalidateLayoutAttributes(UICollectionViewLayoutInvalidationCon
     // This will be updated by -filterSpecialAttributes
     backgroundAttribute.frame = self.frame;
     backgroundAttribute.unpinnedY = CGRectGetMinY(self.frame);
+    backgroundAttribute.unstretchedHeight = self.frame.size.height;
     backgroundAttribute.zIndex = DEFAULT_ZINDEX;
     backgroundAttribute.pinnedHeader = NO;
     backgroundAttribute.stickedHeader = NO;

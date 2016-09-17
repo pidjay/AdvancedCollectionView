@@ -45,6 +45,10 @@ typedef void (^AAPLSupplementaryItemConfigurationBlock)(__kindof UICollectionReu
 /// Note: Those headers should be positioned first if you have more than one header.
 @property (nonatomic) BOOL shouldStick;
 
+/// Should this supplementary view stretch to the top of the view when pulling down? Only valid for global header supplementary views.
+/// Note: Those headers should be positioned before any headers that don't stick.
+@property (nonatomic) BOOL shouldStretch;
+
 /// The height of the supplementary view. Default value is AAPLCollectionViewAutomaticHeight. Setting this property to a concrete value will prevent the supplementary view from being automatically sized.
 @property (nonatomic) CGFloat height;
 
