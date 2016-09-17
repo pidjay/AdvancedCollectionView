@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// If this is a header, will it stick to the top of the collection view?
 @property (nonatomic, getter = isStickedHeader) BOOL stickedHeader;
 
+/// If this is a header, is it stretched?
+@property (nonatomic, getter = isStretchedHeader) BOOL stretchedHeader;
+
 /// The background color for the view
 @property (nonatomic, strong) UIColor *backgroundColor;
 

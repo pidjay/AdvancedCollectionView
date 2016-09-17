@@ -90,6 +90,7 @@ class ComposedDataSource: AAPLComposedDataSource {
 		let header2 = self.newHeaderForKey("STICKY_0")
 		header2.shouldPin              = false
 		header2.shouldStick            = true
+		header2.shouldStretch          = true
 		header2.supplementaryViewClass = AAPLSectionHeaderView.self
 		header2.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
 		header2.pinnedBackgroundColor  = UIColor(white: 0.9, alpha: 1.0)
@@ -103,17 +104,35 @@ class ComposedDataSource: AAPLComposedDataSource {
 		let header1 = self.newHeaderForKey("STICKY_1")
 		header1.shouldPin              = true
 		header1.shouldStick            = true
+		header1.shouldStretch          = false
 		header1.supplementaryViewClass = AAPLSectionHeaderView.self
 		header1.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
 		header1.pinnedBackgroundColor  = UIColor(red: 0.4, green: 0.9, blue: 0.7, alpha: 1.0)
-		header1.stickedBackgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1.0)
-		header1.showsSeparator         = true
+		header1.stickedBackgroundColor = UIColor(red: 0.3, green: 0.525, blue: 0.675, alpha: 1.0)
+		header1.showsSeparator         = false
 		header1.pinnedSeparatorColor   = UIColor(red: 0.3, green: 0.675, blue: 0.525, alpha: 1.0)
 		header1.stickedSeparatorColor  = UIColor(red: 0.3, green: 0.525, blue: 0.675, alpha: 1.0)
 		header1.visibleWhileShowingPlaceholder = true
 		header1.configureView          = { (reusableView, dataSource, indexPath) -> Void in
 			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
 			headerView.leftText = "STICKY_1"
+		}
+		
+		let header7 = self.newHeaderForKey("STICKY_2")
+		header7.shouldPin              = true
+		header7.shouldStick            = true
+		header7.shouldStretch          = true
+		header7.supplementaryViewClass = AAPLSectionHeaderView.self
+		header7.backgroundColor        = UIColor(white: 0.9, alpha: 1.0)
+		header7.pinnedBackgroundColor  = UIColor(red: 0.4, green: 0.9, blue: 0.7, alpha: 1.0)
+		header7.stickedBackgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1.0)
+		header7.showsSeparator         = true
+		header7.pinnedSeparatorColor   = UIColor(red: 0.3, green: 0.675, blue: 0.525, alpha: 1.0)
+		header7.stickedSeparatorColor  = UIColor(red: 0.3, green: 0.525, blue: 0.675, alpha: 1.0)
+		header7.visibleWhileShowingPlaceholder = true
+		header7.configureView          = { (reusableView, dataSource, indexPath) -> Void in
+			guard let headerView = reusableView as? AAPLSectionHeaderView else { return }
+			headerView.leftText = "STICKY_2"
 		}
 		
 		let header5 = self.newHeaderForKey("NORMAL_0")

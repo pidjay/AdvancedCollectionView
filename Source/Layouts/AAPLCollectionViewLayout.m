@@ -1437,11 +1437,15 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         AAPLCollectionViewLayoutAttributes *attributes = supplementaryItem.layoutAttributes;
         CGRect frame = attributes.frame;
         
-        if (frame.origin.y != attributes.unpinnedY)
+        if (frame.origin.y != attributes.unpinnedY || frame.size.height != attributes.unstretchedHeight)
             [invalidationContext invalidateSupplementaryElementsOfKind:attributes.representedElementKind atIndexPaths:@[attributes.indexPath]];
         
         attributes.stickedHeader = NO;
         frame.origin.y = attributes.unpinnedY;
+        
+        attributes.stretchedHeader = NO;
+        frame.size.height = attributes.unstretchedHeight;
+        
         attributes.frame = frame;
     }
 }
@@ -1520,6 +1524,10 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 - (void)applyStickingToSupplementaryItems:(NSArray *)supplementaryItems minY:(CGFloat)originalMinY invalidationContext:(UICollectionViewLayoutInvalidationContext *)invalidationContext
 {
     __block CGFloat minY = originalMinY;
+    NSInteger stretchableHeadersCount = [supplementaryItems indexesOfObjectsPassingTest:^BOOL(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger idx, BOOL * _Nonnull stop) {
+        return supplementaryItem.shouldStretch;
+    }].count;
+    __block BOOL sticked = NO;
     
     [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
         
@@ -1531,7 +1539,21 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         
         if (frame.origin.y > minY) {
             frame.origin.y = minY;
-            
+        }
+        
+        // When a header is sticked, all the following ones will also be
+        if (frame.origin.y < layoutAttributes.unpinnedY) {
+            sticked = YES;
+        }
+        
+        if (supplementaryItem.shouldStretch) {
+            if (frame.origin.y >= minY && sticked) {
+                frame.size.height -= originalMinY / stretchableHeadersCount;
+            }
+        }
+        
+        // Force the invalidation of a header if it is sticked but has the same frame (this can happen to non stretchable headers following a stretchable one)
+        if (!CGRectEqualToRect(frame, layoutAttributes.frame) || sticked) {
             layoutAttributes.frame = frame;
             
             [invalidationContext invalidateSupplementaryElementsOfKind:layoutAttributes.representedElementKind atIndexPaths:@[layoutAttributes.indexPath]];
@@ -1543,11 +1565,19 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
 
 - (void)finalizeStickingForSupplementaryItems:(NSArray *)supplementaryItems zIndex:(NSInteger)zIndex
 {
+    __block BOOL sticked = NO;
+    
     [supplementaryItems enumerateObjectsUsingBlock:^(AAPLLayoutSupplementaryItem *supplementaryItem, NSUInteger itemIndex, BOOL *stop) {
         AAPLCollectionViewLayoutAttributes *layoutAttributes = supplementaryItem.layoutAttributes;
         
         CGRect frame = layoutAttributes.frame;
-        layoutAttributes.stickedHeader = frame.origin.y < layoutAttributes.unpinnedY;
+        
+        if (frame.origin.y < layoutAttributes.unpinnedY) {
+            sticked = YES;
+        }
+        
+        layoutAttributes.stickedHeader = sticked;
+        layoutAttributes.stretchedHeader = frame.size.height > layoutAttributes.unstretchedHeight;
         NSInteger depth = 1 + itemIndex;
         layoutAttributes.zIndex = zIndex - depth;
     }];
@@ -1587,7 +1617,6 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
     
     [self resetStickySupplementaryItems:self.stickyItems invalidationContext:invalidationContext];
     [self.stickyItems removeAllObjects];
-
     
     AAPLLayoutSection *section = [self sectionInfoForSectionAtIndex:AAPLGlobalSectionIndex];
     // Stick the headers as appropriate
@@ -1595,6 +1624,7 @@ typedef NS_ENUM(NSInteger, AAPLAutoScrollDirection) {
         [self applyStickingToSupplementaryItems:section.stickyHeaders minY:pinnableY invalidationContext:invalidationContext];
         [self finalizeStickingForSupplementaryItems:section.stickyHeaders zIndex:HEADER_ZINDEX];
     }
+    
     // Pin the headers as appropriate
     if (section.pinnableHeaders) {
         // Global header that are pinned should never be pushed
