@@ -11,7 +11,10 @@
 @import XCTest;
 
 #import "AAPLBasicDataSource.h"
+#import "AAPLDataSourceMetrics.h"
+#import "AAPLDataSource.h"
 #import "AAPLDataSource_Private.h"
+#import "AAPLCollectionViewLayout.h"
 #import "AAPLCollectionViewLayout_Private.h"
 #import "AAPLCollectionViewLayout_Internal.h"
 
