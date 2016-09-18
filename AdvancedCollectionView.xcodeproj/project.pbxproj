@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C54F54491D215CEE0021336E /* AdvancedCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54481D215CEE0021336E /* AdvancedCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54501D215CF10021336E /* AdvancedCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54F54451D215CED0021336E /* AdvancedCollectionView.framework */; };
-		C54F54551D215CF10021336E /* AdvancedCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */; };
 		C54F546D1D22A9FF0021336E /* AAPLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54621D22A9FF0021336E /* AAPLAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F546E1D22A9FF0021336E /* AAPLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54631D22A9FF0021336E /* AAPLAction.m */; };
 		C54F546F1D22A9FF0021336E /* AAPLContentLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54641D22A9FF0021336E /* AAPLContentLoading.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -101,7 +100,6 @@
 		C54F54481D215CEE0021336E /* AdvancedCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedCollectionView.h; sourceTree = "<group>"; };
 		C54F544A1D215CEE0021336E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C54F544F1D215CF10021336E /* AdvancedCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvancedCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvancedCollectionViewTests.m; sourceTree = "<group>"; };
 		C54F54561D215CF10021336E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C54F54621D22A9FF0021336E /* AAPLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLAction.h; sourceTree = "<group>"; };
 		C54F54631D22A9FF0021336E /* AAPLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLAction.m; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		C54F54531D215CF10021336E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C54F54541D215CF10021336E /* AdvancedCollectionViewTests.m */,
 				C5CEEBA21D4DFDD100146125 /* DataSourceTests */,
 				C54F54561D215CF10021336E /* Info.plist */,
 			);
@@ -544,7 +541,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C54F54551D215CF10021336E /* AdvancedCollectionViewTests.m in Sources */,
 				C5CEEBA51D4DFDD100146125 /* BasicDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
