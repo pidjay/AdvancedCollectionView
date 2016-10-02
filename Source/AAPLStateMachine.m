@@ -122,11 +122,11 @@ static NSString * const AAPLStateNil = @"Nil";
             return nil;
         }
     }
-
+    
+    BOOL transitionSpecified = YES;
     // Raise exception if this is an illegal transition (toState must be a validTransition on fromState)
     if (fromState) {
         id validTransitions = self.validTransitions[fromState];
-        BOOL transitionSpecified = YES;
 
         // Multiple valid transitions
         if ([validTransitions isKindOfClass:[NSArray class]]) {
@@ -138,21 +138,25 @@ static NSString * const AAPLStateNil = @"Nil";
         else if (![validTransitions isEqual:toState]) {
             transitionSpecified = NO;
         }
-
-        if (!transitionSpecified) {
-            // Silently fail if implict transition to the same state
-            if ([fromState isEqualToString:toState]) {
-                if (self.shouldLogStateTransitions)
-                    NSLog(@"  ••• %@ ignoring reentry to %@", self, toState);
-                return nil;
-            }
-
+    }
+    else {
+        NSArray<NSString *> *validStates = self.validTransitions.keyEnumerator.allObjects;
+        transitionSpecified = [validStates containsObject:toState];
+    }
+    
+    if (!transitionSpecified) {
+        // Silently fail if implict transition to the same state
+        if ([fromState isEqualToString:toState]) {
             if (self.shouldLogStateTransitions)
-                NSLog(@"  ••• %@ cannot transition to %@ from %@", self, toState, fromState);
-            toState = [self triggerMissingTransitionFromState:fromState toState:toState];
-            if (!toState)
-                return nil;
+                NSLog(@"  ••• %@ ignoring reentry to %@", self, toState);
+            return nil;
         }
+        
+        if (self.shouldLogStateTransitions)
+            NSLog(@"  ••• %@ cannot transition to %@ from %@", self, toState, fromState);
+        toState = [self triggerMissingTransitionFromState:fromState toState:toState];
+        if (!toState)
+            return nil;
     }
 
     // Allow target to opt out of this transition (preconditions)

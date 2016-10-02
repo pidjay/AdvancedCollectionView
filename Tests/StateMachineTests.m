@@ -83,6 +83,24 @@
     XCTAssertFalse(_didChangeFromInitialStateToValidState);
 }
 
+- (void)testInvalidInitialState {
+    self.sut.validTransitions = @{
+                                  @"InitialState": @[@"ValidState"]
+                                  };
+    
+    XCTAssertThrows(self.sut.currentState = @"InvalidInitialState");
+    XCTAssertEqual(_stateWillChangeCount, 0);
+    XCTAssertEqual(_stateDidChangeCount, 0);
+    
+    XCTAssertFalse(_shouldEnterInitialState);
+    XCTAssertFalse(_shouldEnterValidState);
+    XCTAssertFalse(_didEnterInitialState);
+    XCTAssertFalse(_didExitInitialState);
+    XCTAssertFalse(_didEnterValidState);
+    XCTAssertFalse(_didChangeFromNilToInitialState);
+    XCTAssertFalse(_didChangeFromInitialStateToValidState);
+}
+
 - (void)testValidStateTransition {
     self.sut.validTransitions = @{
                                   @"InitialState": @[@"ValidState"]
