@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// A smaller font for use in list items.
 @property (readonly, nonatomic) UIFont *listSmallFont;
 
-/// Standard list item layout margins (default is 15pt on leading and trailing, 0 on top & bottom)
+/// Standard list item layout margins (default is 15pt on leading and trailing, 8 on top & bottom)
 @property (readonly, nonatomic) UIEdgeInsets listLayoutMargins;
 /// The layout margins for section headers. This may be overridden for individual headers. (default is 15pt on leading and trailing, 5pt on top & bottom)
 @property (readonly, nonatomic) UIEdgeInsets sectionHeaderLayoutMargins;
