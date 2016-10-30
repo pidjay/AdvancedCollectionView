@@ -260,6 +260,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
         unsigned char numberOfColumns : 1;
         unsigned char theme : 1;
         unsigned char padding : 1;
+        unsigned char layoutMargins : 1;
         unsigned char showsRowSeparator : 1;
     } _flags;
 }
@@ -302,6 +303,8 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     metrics->_flags = _flags;
     metrics->_theme = _theme;
     metrics->_showsRowSeparator = _showsColumnSeparator;
+    metrics->_layoutMargins = _layoutMargins;
+    
     return metrics;
 }
 
@@ -345,6 +348,11 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_SET_PROP_AND_FLAG(numberOfColumns, numberOfColumns);
 }
 
+- (void)setLayoutMargins:(UIEdgeInsets)layoutMargins
+{
+    AAPL_SET_PROP_AND_FLAG(layoutMargins, layoutMargins);
+}
+
 - (void)setPadding:(UIEdgeInsets)padding
 {
     AAPL_SET_PROP_AND_FLAG(padding, padding);
@@ -375,6 +383,10 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
 
     if (!UIEdgeInsetsEqualToEdgeInsets(metrics.sectionSeparatorInsets, UIEdgeInsetsZero))
         self.sectionSeparatorInsets = metrics.sectionSeparatorInsets;
+    
+    if (!UIEdgeInsetsEqualToEdgeInsets(metrics.layoutMargins, UIEdgeInsetsZero)) {
+        self.layoutMargins = metrics.layoutMargins;
+    }
 
     AAPL_COPY_PROP_FROM_TO(rowHeight, metrics, self);
     AAPL_COPY_PROP_FROM_TO(estimatedRowHeight, metrics, self);
