@@ -16,7 +16,9 @@ class BasicDataSource: AAPLBasicDataSource {
 		
 		let metrics = self.defaultMetrics
 		metrics.numberOfColumns   = 1
+		metrics.estimatedRowHeight = 100.0
 		metrics.showsRowSeparator = true
+		metrics.layoutMargins = UIEdgeInsets(top: 12, left: 15, bottom: 12, right: 15)
 	}
 	
 	override func registerReusableViewsWithCollectionView(collectionView: UICollectionView) {
@@ -29,7 +31,7 @@ class BasicDataSource: AAPLBasicDataSource {
 		let text = self.itemAtIndexPath(indexPath) as? String
 		
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BasicCell", forIndexPath: indexPath) as! AAPLBasicCell
-		cell.style = .Subtitle
+		cell.style = .Default
 		cell.primaryLabel.text = text
 		cell.primaryLabel.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
 		return cell
