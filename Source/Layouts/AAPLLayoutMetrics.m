@@ -262,6 +262,8 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
         unsigned char padding : 1;
         unsigned char layoutMargins : 1;
         unsigned char showsRowSeparator : 1;
+        unsigned char showsColumnSeparator : 1;
+        unsigned char cellLayoutOrder : 1;
     } _flags;
 }
 
@@ -302,7 +304,7 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     metrics->_cellLayoutOrder = _cellLayoutOrder;
     metrics->_flags = _flags;
     metrics->_theme = _theme;
-    metrics->_showsRowSeparator = _showsColumnSeparator;
+    metrics->_showsRowSeparator = _showsRowSeparator;
     metrics->_layoutMargins = _layoutMargins;
     
     return metrics;
@@ -373,6 +375,16 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_SET_PROP_AND_FLAG(showsSectionSeparator, showsSectionSeparator);
 }
 
+- (void)setShowsColumnSeparator:(BOOL)showsColumnSeparator
+{
+    AAPL_SET_PROP_AND_FLAG(showsColumnSeparator, showsColumnSeparator);
+}
+
+- (void)setCellLayoutOrder:(AAPLCellLayoutOrder)cellLayoutOrder
+{
+    AAPL_SET_PROP_AND_FLAG(cellLayoutOrder, cellLayoutOrder);
+}
+
 - (void)applyValuesFromMetrics:(AAPLSectionMetrics *)metrics
 {
     if (!metrics)
@@ -400,6 +412,8 @@ NSInteger const AAPLGlobalSectionIndex = NSIntegerMax;
     AAPL_COPY_PROP_FROM_TO(padding, metrics, self);
     AAPL_COPY_PROP_FROM_TO(showsRowSeparator, metrics, self);
     AAPL_COPY_PROP_FROM_TO(showsSectionSeparator, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(showsColumnSeparator, metrics, self);
+    AAPL_COPY_PROP_FROM_TO(cellLayoutOrder, metrics, self);
 }
 
 - (void)resolveMissingValuesFromTheme

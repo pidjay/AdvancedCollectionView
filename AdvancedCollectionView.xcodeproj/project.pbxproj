@@ -86,6 +86,7 @@
 		C54F54F61D22AA110021336E /* AAPLSegmentedHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */; };
 		C54F54F71D22AA110021336E /* AAPLTextValueCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54B91D22AA110021336E /* AAPLTextValueCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54F81D22AA110021336E /* AAPLTextValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */; };
+		C5873AF61DC81F68003D00C2 /* SectionMetricsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5873AF51DC81F68003D00C2 /* SectionMetricsTests.m */; };
 		C5AB8B791D9809C000052F11 /* StateMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB8B781D9809C000052F11 /* StateMachineTests.m */; };
 		C5CEEBA51D4DFDD100146125 /* BasicDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */; };
 /* End PBXBuildFile section */
@@ -183,6 +184,7 @@
 		C54F54B81D22AA110021336E /* AAPLSegmentedHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSegmentedHeaderView.m; sourceTree = "<group>"; };
 		C54F54B91D22AA110021336E /* AAPLTextValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLTextValueCell.h; sourceTree = "<group>"; };
 		C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLTextValueCell.m; sourceTree = "<group>"; };
+		C5873AF51DC81F68003D00C2 /* SectionMetricsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SectionMetricsTests.m; path = LayoutsTests/SectionMetricsTests.m; sourceTree = "<group>"; };
 		C5AB8B781D9809C000052F11 /* StateMachineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateMachineTests.m; sourceTree = "<group>"; };
 		C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicDataSourceTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,6 +261,7 @@
 				C50F16351D92C8D000EE0225 /* LoadingProgressTests.m */,
 				C5AB8B781D9809C000052F11 /* StateMachineTests.m */,
 				C5CEEBA21D4DFDD100146125 /* DataSourceTests */,
+				C5873AF41DC81F15003D00C2 /* LayoutsTests */,
 				C54F54561D215CF10021336E /* Info.plist */,
 			);
 			path = Tests;
@@ -359,6 +362,14 @@
 				C54F54BA1D22AA110021336E /* AAPLTextValueCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C5873AF41DC81F15003D00C2 /* LayoutsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C5873AF51DC81F68003D00C2 /* SectionMetricsTests.m */,
+			);
+			name = LayoutsTests;
 			sourceTree = "<group>";
 		};
 		C5CEEBA21D4DFDD100146125 /* DataSourceTests */ = {
@@ -560,6 +571,7 @@
 				C5AB8B791D9809C000052F11 /* StateMachineTests.m in Sources */,
 				C50F16341D90A4BC00EE0225 /* LoadableContentStateMachineTests.m in Sources */,
 				6985B6FE1D8E98A4004BE287 /* ActionTests.m in Sources */,
+				C5873AF61DC81F68003D00C2 /* SectionMetricsTests.m in Sources */,
 				C5CEEBA51D4DFDD100146125 /* BasicDataSourceTests.m in Sources */,
 				C50F16361D92C8D000EE0225 /* LoadingProgressTests.m in Sources */,
 			);
