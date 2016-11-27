@@ -11,6 +11,7 @@
 		C50F16321D90257600EE0225 /* DebugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C50F16311D90257600EE0225 /* DebugTests.m */; };
 		C50F16341D90A4BC00EE0225 /* LoadableContentStateMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C50F16331D90A4BC00EE0225 /* LoadableContentStateMachineTests.m */; };
 		C50F16361D92C8D000EE0225 /* LoadingProgressTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C50F16351D92C8D000EE0225 /* LoadingProgressTests.m */; };
+		C525A3671DEB1EEC00912704 /* DataSourceMetricsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C525A3661DEB1EEC00912704 /* DataSourceMetricsTests.m */; };
 		C54F54491D215CEE0021336E /* AdvancedCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54481D215CEE0021336E /* AdvancedCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54F54501D215CF10021336E /* AdvancedCollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C54F54451D215CED0021336E /* AdvancedCollectionView.framework */; };
 		C54F546D1D22A9FF0021336E /* AAPLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = C54F54621D22A9FF0021336E /* AAPLAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -106,6 +107,7 @@
 		C50F16311D90257600EE0225 /* DebugTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugTests.m; sourceTree = "<group>"; };
 		C50F16331D90A4BC00EE0225 /* LoadableContentStateMachineTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadableContentStateMachineTests.m; sourceTree = "<group>"; };
 		C50F16351D92C8D000EE0225 /* LoadingProgressTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingProgressTests.m; sourceTree = "<group>"; };
+		C525A3661DEB1EEC00912704 /* DataSourceMetricsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSourceMetricsTests.m; sourceTree = "<group>"; };
 		C54F54451D215CED0021336E /* AdvancedCollectionView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdvancedCollectionView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54F54481D215CEE0021336E /* AdvancedCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdvancedCollectionView.h; sourceTree = "<group>"; };
 		C54F544A1D215CEE0021336E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				C5CEEBA31D4DFDD100146125 /* BasicDataSourceTests.m */,
+				C525A3661DEB1EEC00912704 /* DataSourceMetricsTests.m */,
 			);
 			path = DataSourceTests;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C525A3671DEB1EEC00912704 /* DataSourceMetricsTests.m in Sources */,
 				C50F16321D90257600EE0225 /* DebugTests.m in Sources */,
 				C5AB8B791D9809C000052F11 /* StateMachineTests.m in Sources */,
 				C50F16341D90A4BC00EE0225 /* LoadableContentStateMachineTests.m in Sources */,
